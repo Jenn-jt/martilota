@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurante Martilota Alcalá de Henares · Cocina mediterránea y espacios mágicos</title>
+  <meta name="description" content="Restaurante en Alcalá de Henares con cinco espacios únicos. Cocina mediterránea, terraza mirador, eventos y Martilota Coffee. Reserva tu mesa." />
+  <link rel="canonical" href="./" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Libre+Franklin:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Libre Franklin', -apple-system, sans-serif; color: #1A1A1A; background: #F5F7F7; -webkit-font-smoothing: antialiased; line-height: 1.5; }
+    img { display: block; max-width: 100%; }
+    .serif { font-family: 'Cormorant Infant', Georgia, serif; }
+
+    /* === NAVEGACIÓN === */
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 48px; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 0.5px solid rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 100; }
+    .nav-left, .nav-right { display: flex; gap: 28px; align-items: center; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #1A1A1A; font-weight: 400; }
+    .nav-left span, .nav-right span { cursor: pointer; transition: color 0.2s; }
+    .nav-left span:hover, .nav-right span:hover { color: #CB6037; }
+    .nav-logo { font-family: 'Cormorant Infant', serif; font-size: 22px; letter-spacing: 0.25em; font-weight: 500; color: #1A1A1A; cursor: pointer; }
+    .nav-cta { background: #1A1A1A; color: #fff; padding: 11px 22px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; border: none; cursor: pointer; font-family: inherit; transition: background 0.2s; }
+    .nav-cta:hover { background: #CB6037; }
+
+    /* === HERO === */
+    .hero { position: relative; height: 92vh; min-height: 600px; max-height: 800px; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; }
+    .hero-img { position: absolute; inset: 0; background: url('https://www.martilota.com/imgs/DSC1831.jpg') center/cover; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 100%); }
+    .hero-content { position: relative; z-index: 2; max-width: 800px; padding: 0 32px; }
+    .hero-eyebrow { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: #E5C3B8; margin-bottom: 28px; font-weight: 500; }
+    .hero h1 { font-family: 'Cormorant Infant', serif; font-size: 84px; font-weight: 300; line-height: 1; letter-spacing: -0.02em; margin-bottom: 24px; }
+    .hero h1 em { font-style: italic; }
+    .hero-tagline { font-family: 'Cormorant Infant', serif; font-size: 22px; font-style: italic; font-weight: 300; max-width: 540px; margin: 0 auto 44px; line-height: 1.4; color: rgba(255,255,255,0.95); }
+    .hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: #CB6037; color: #fff; padding: 18px 36px; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; border: none; cursor: pointer; font-family: inherit; font-weight: 500; transition: background 0.2s; }
+    .btn-primary:hover { background: #A04D2C; }
+    .btn-secondary { background: transparent; color: #fff; padding: 18px 36px; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.9); cursor: pointer; font-family: inherit; font-weight: 500; transition: all 0.2s; }
+    .btn-secondary:hover { background: rgba(255,255,255,0.95); color: #1A1A1A; }
+
+    /* === TRUST BAR === */
+    .trust { background: #fff; padding: 22px 48px; display: flex; gap: 48px; justify-content: center; align-items: center; flex-wrap: wrap; border-bottom: 0.5px solid rgba(0,0,0,0.06); }
+    .trust-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: #4A4A4A; }
+    .trust-item strong { color: #1A1A1A; font-weight: 500; }
+    .trust-star { color: #CB6037; font-size: 16px; }
+
+    /* === INTRO === */
+    .intro { padding: 110px 32px; background: #F5F7F7; text-align: center; }
+    .intro-eyebrow { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: #CB6037; margin-bottom: 28px; font-weight: 500; }
+    .intro-text { font-family: 'Cormorant Infant', serif; font-size: 36px; font-weight: 300; line-height: 1.35; max-width: 780px; margin: 0 auto; color: #1A1A1A; letter-spacing: -0.01em; }
+    .intro-text em { font-style: italic; color: #CB6037; }
+
+    /* === ESPACIOS === */
+    .espacios { padding: 100px 48px; background: #fff; }
+    .sec-head { text-align: center; max-width: 720px; margin: 0 auto 64px; }
+    .sec-eyebrow { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: #CB6037; margin-bottom: 18px; font-weight: 500; }
+    .sec-head h2 { font-family: 'Cormorant Infant', serif; font-size: 56px; font-weight: 300; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 20px; }
+    .sec-head h2 em { font-style: italic; }
+    .sec-head p { color: #4A4A4A; font-size: 16px; line-height: 1.65; max-width: 540px; margin: 0 auto; }
+
+    .espacios-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 1200px; margin: 0 auto; }
+    .espacio-card { position: relative; overflow: hidden; cursor: pointer; }
+    .espacio-card.featured { grid-column: span 2; }
+    .espacio-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+    .espacio-card { height: 360px; }
+    .espacio-card.featured { height: 480px; }
+    .espacio-card:hover .espacio-img { transform: scale(1.04); }
+    .espacio-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.75) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 36px; color: #fff; }
+    .espacio-num { font-family: 'Cormorant Infant', serif; font-size: 14px; opacity: 0.85; margin-bottom: 8px; letter-spacing: 0.18em; font-style: italic; }
+    .espacio-name { font-family: 'Cormorant Infant', serif; font-size: 42px; line-height: 1.1; margin-bottom: 12px; font-weight: 300; letter-spacing: -0.01em; }
+    .espacio-card.featured .espacio-name { font-size: 56px; }
+    .espacio-desc { font-size: 14px; opacity: 0.92; line-height: 1.55; max-width: 480px; margin-bottom: 16px; }
+    .espacio-link { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #fff; opacity: 0.9; }
+    .espacio-link::after { content: ' →'; }
+
+    /* === CARTA === */
+    .carta { padding: 110px 48px; background: #1A1A1A; color: #fff; }
+    .carta .sec-head h2 { color: #fff; }
+    .carta .sec-head p { color: rgba(255,255,255,0.75); }
+    .carta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; max-width: 1200px; margin: 0 auto; align-items: center; }
+    .carta-img-wrap { position: relative; overflow: hidden; }
+    .carta-img-wrap img { width: 100%; height: 540px; object-fit: cover; }
+    .carta-content h3 { font-family: 'Cormorant Infant', serif; font-size: 48px; font-weight: 300; line-height: 1.1; margin-bottom: 28px; letter-spacing: -0.02em; }
+    .carta-content h3 em { font-style: italic; color: #E5C3B8; }
+    .carta-content p { color: rgba(255,255,255,0.8); font-size: 16px; line-height: 1.65; margin-bottom: 36px; }
+
+    .carta-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 0.5px solid rgba(255,255,255,0.18); }
+    .carta-item { padding: 18px 0; border-bottom: 0.5px solid rgba(255,255,255,0.18); display: flex; align-items: center; gap: 12px; font-size: 13px; cursor: pointer; transition: color 0.2s; }
+    .carta-item:hover { color: #E5C3B8; }
+    .carta-item:nth-child(odd) { padding-right: 14px; }
+    .carta-item:nth-child(even) { padding-left: 14px; border-left: 0.5px solid rgba(255,255,255,0.18); }
+    .carta-item-num { font-family: 'Cormorant Infant', serif; font-style: italic; color: #CB6037; font-size: 14px; }
+
+    /* === MENÚ SEMANAL DESTACADO === */
+    .semanal { padding: 100px 48px; background: #F5F7F7; text-align: center; }
+    .semanal-card { max-width: 880px; margin: 0 auto; background: #fff; padding: 70px 48px; border: 0.5px solid rgba(0,0,0,0.08); position: relative; }
+    .semanal-card .sec-eyebrow { margin-bottom: 16px; }
+    .semanal-card h3 { font-family: 'Cormorant Infant', serif; font-size: 48px; font-weight: 300; line-height: 1.1; margin-bottom: 16px; letter-spacing: -0.02em; }
+    .semanal-card h3 em { font-style: italic; color: #CB6037; }
+    .semanal-price { font-family: 'Cormorant Infant', serif; font-size: 80px; font-weight: 300; color: #CB6037; margin: 20px 0; letter-spacing: -0.03em; line-height: 1; }
+    .semanal-price small { font-size: 24px; }
+    .semanal-card p { color: #4A4A4A; font-size: 15px; max-width: 480px; margin: 0 auto 28px; line-height: 1.6; }
+    .btn-dark { background: #1A1A1A; color: #fff; padding: 18px 36px; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; border: none; cursor: pointer; font-family: inherit; font-weight: 500; transition: background 0.2s; }
+    .btn-dark:hover { background: #CB6037; }
+
+    /* === COFFEE === */
+    .coffee { padding: 110px 48px; background: #fff; }
+    .coffee-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; max-width: 1200px; margin: 0 auto; align-items: stretch; min-height: 480px; }
+    .coffee-content { padding: 60px; display: flex; flex-direction: column; justify-content: center; background: #F5F7F7; }
+    .coffee-img-wrap { overflow: hidden; }
+    .coffee-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .coffee-content h3 { font-family: 'Cormorant Infant', serif; font-size: 48px; font-weight: 300; line-height: 1.1; margin-bottom: 22px; letter-spacing: -0.02em; }
+    .coffee-content h3 em { font-style: italic; color: #CB6037; }
+    .coffee-content p { color: #4A4A4A; font-size: 15px; line-height: 1.7; margin-bottom: 32px; max-width: 420px; }
+
+    /* === ALCALÁ === */
+    .alcala { padding: 110px 48px; background: #F5F7F7; text-align: center; }
+    .alcala-img-wrap { max-width: 1100px; margin: 0 auto 56px; overflow: hidden; }
+    .alcala-img-wrap img { width: 100%; height: 420px; object-fit: cover; }
+    .alcala-text { max-width: 720px; margin: 0 auto; }
+    .alcala-text h2 { font-family: 'Cormorant Infant', serif; font-size: 56px; font-weight: 300; line-height: 1.1; margin-bottom: 28px; letter-spacing: -0.02em; }
+    .alcala-text h2 em { font-style: italic; color: #CB6037; }
+    .alcala-text p { color: #4A4A4A; font-size: 16px; line-height: 1.8; margin-bottom: 16px; }
+    .alcala-address { font-family: 'Cormorant Infant', serif; font-size: 22px; font-style: italic; color: #1A1A1A; margin-top: 32px; }
+
+    /* === RESERVA FINAL === */
+    .reserva { padding: 130px 48px; background: #1A1A1A; color: #fff; text-align: center; }
+    .reserva h2 { font-family: 'Cormorant Infant', serif; font-size: 72px; font-weight: 300; line-height: 1.05; max-width: 720px; margin: 16px auto 28px; letter-spacing: -0.025em; }
+    .reserva h2 em { font-style: italic; color: #E5C3B8; }
+    .reserva p { color: rgba(255,255,255,0.75); font-size: 17px; margin-bottom: 44px; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+    .reserva .hero-ctas .btn-secondary { color: #fff; border-color: rgba(255,255,255,0.8); }
+    .reserva .hero-ctas .btn-secondary:hover { background: #fff; color: #1A1A1A; }
+
+    /* === FOOTER === */
+    .footer { background: #0F0F0F; color: rgba(255,255,255,0.6); padding: 70px 48px 32px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; max-width: 1200px; margin: 0 auto 48px; }
+    .footer-logo { font-family: 'Cormorant Infant', serif; color: #fff; font-size: 28px; letter-spacing: 0.22em; margin-bottom: 20px; font-weight: 500; }
+    .footer p { font-size: 13px; line-height: 1.7; margin-bottom: 6px; }
+    .footer h4 { font-family: 'Cormorant Infant', serif; color: #fff; margin-bottom: 16px; font-size: 18px; font-weight: 400; font-style: italic; }
+    .footer a { color: rgba(255,255,255,0.6); text-decoration: none; display: block; font-size: 13px; padding: 5px 0; cursor: pointer; transition: color 0.2s; }
+    .footer a:hover { color: #CB6037; }
+    .footer p a { display: inline; padding: 0; }
+    .footer a p { transition: color 0.2s; margin: 0; padding: 2px 0; }
+    .footer a:hover p { color: #CB6037; }
+    .alcala-address { transition: color 0.2s; cursor: pointer; }
+    .alcala-address:hover { color: #CB6037; }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; border-top: 0.5px solid rgba(255,255,255,0.12); padding-top: 28px; display: flex; justify-content: space-between; font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: 0.05em; flex-wrap: wrap; gap: 12px; }
+
+    /* === WHATSAPP === */
+    .wa-float { position: fixed; bottom: 28px; right: 28px; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 28px; cursor: pointer; z-index: 90; box-shadow: 0 8px 24px rgba(0,0,0,0.18); transition: transform 0.2s; }
+    .wa-float:hover { transform: scale(1.08); }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 900px) {
+      .nav { padding: 14px 20px; }
+      .nav-left, .nav-right { display: none; }
+      .hero h1 { font-size: 52px; }
+      .hero-tagline { font-size: 18px; }
+      .intro-text { font-size: 26px; }
+      .sec-head h2 { font-size: 38px; }
+      .espacios-grid { grid-template-columns: 1fr; }
+      .espacio-card.featured { grid-column: span 1; height: 360px; }
+      .espacio-name { font-size: 32px !important; }
+      .carta-grid { grid-template-columns: 1fr; gap: 32px; }
+      .carta-img-wrap img { height: 360px; }
+      .carta-content h3 { font-size: 36px; }
+      .semanal-card { padding: 50px 28px; }
+      .semanal-card h3 { font-size: 36px; }
+      .semanal-price { font-size: 60px; }
+      .coffee-grid { grid-template-columns: 1fr; }
+      .coffee-content { padding: 50px 28px; }
+      .coffee-content h3 { font-size: 36px; }
+      .alcala-text h2 { font-size: 38px; }
+      .reserva h2 { font-size: 44px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; }
+      .espacios, .carta, .coffee, .alcala, .semanal { padding: 70px 20px; }
+      .intro { padding: 70px 20px; }
+      .reserva { padding: 80px 20px; }
+    }
+    @media (max-width: 500px) {
+      .hero h1 { font-size: 42px; }
+      .hero-eyebrow { font-size: 10px; }
+      .nav-logo { font-size: 18px; }
+      .trust { gap: 16px; padding: 18px 20px; }
+      .trust-item { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVEGACIÓN -->
+  <nav class="nav">
+    <div class="nav-left">
+      <a href="./" style="color:inherit; text-decoration:none;"><span>Inicio</span></a>
+      <a href="carta/" style="color:inherit; text-decoration:none;"><span>Carta</span></a>
+      <span>Coffee</span>
+    </div>
+    <a href="./" style="color:inherit; text-decoration:none;"><div class="nav-logo">MARTILOTA</div></a>
+    <div class="nav-right">
+      <span>Eventos</span>
+      <a href="donde-estamos/" style="color:inherit; text-decoration:none;"><span>Visítanos</span></a>
+      <a href="donde-estamos/" style="color:inherit; text-decoration:none;"><button class="nav-cta">Reservar</button></a>
+    </div>
+  </nav>
+
+  <!-- HERO con foto real DSC1831.jpg del interior -->
+  <section class="hero">
+    <div class="hero-img"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Alcalá de Henares · Desde 2014</div>
+      <h1>La experiencia Martilota,<br><em>llega a tu mesa</em></h1>
+      <p class="hero-tagline">Pasión por la cocina y los espacios mágicos.<br>Cinco rincones únicos en el corazón de Alcalá.</p>
+      <div class="hero-ctas">
+        <a href="martilota-donde-estamos.html#reservar" style="text-decoration:none;"><button class="btn-primary">Reservar mesa</button></a>
+        <a href="carta/" style="text-decoration:none;"><button class="btn-secondary">Ver la carta</button></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust">
+    <div class="trust-item"><span class="trust-star">★</span> <strong>4,2</strong> · 6.681 reseñas en Google</div>
+    <div class="trust-item">📍 <strong>Plaza de la Paloma</strong>, Alcalá centro</div>
+    <div class="trust-item">🕐 Abierto hoy <strong>hasta la 1:00</strong></div>
+    <div class="trust-item">🐶 <strong>Pet-friendly</strong></div>
+  </div>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="intro-eyebrow">Nuestra historia</div>
+    <p class="intro-text">Martilota nace como respuesta a nuestras inquietudes, viajes por sitios inimaginables y experiencias que nos han llenado y conquistado. Ahora nuestro trabajo es <em>conquistarte a ti</em> con una experiencia gastronómica que querrás repetir.</p>
+  </section>
+
+  <!-- ESPACIOS con fotos reales de cada uno -->
+  <section class="espacios">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Nuestros espacios</div>
+      <h2>Cinco escenarios,<br><em>una misma pasión</em></h2>
+      <p>Cada espacio en Martilota tiene su propia personalidad. Elige el que mejor encaje con tu plan.</p>
+    </div>
+    <div class="espacios-grid">
+      <!-- Terraza Mirador (insignia) -->
+      <div class="espacio-card featured">
+        <img class="espacio-img" src="https://www.martilota.com/imgs/Martilota_sept2020-98.jpg" alt="Terraza Mirador de Martilota con vistas a Alcalá de Henares" />
+        <div class="espacio-overlay">
+          <div class="espacio-num">01 · Espacio insignia</div>
+          <div class="espacio-name">Terraza Mirador</div>
+          <div class="espacio-desc">Disfruta de los días de buena temperatura y del solecito con vistas al mejor atardecer de Alcalá. Un espacio amplio, perfecto también para eventos.</div>
+          <span class="espacio-link">Descubrir el espacio</span>
+        </div>
+      </div>
+
+      <!-- El Restaurante -->
+      <div class="espacio-card">
+        <img class="espacio-img" src="https://www.martilota.com/imgs/espacios-elrestaurante-3.webp" alt="Comedor principal del Restaurante Martilota" />
+        <div class="espacio-overlay">
+          <div class="espacio-num">02</div>
+          <div class="espacio-name">El Restaurante</div>
+          <div class="espacio-desc">Nuestra cocina con ingredientes cuidadosamente seleccionados. Carta innovadora con toque mediterráneo.</div>
+          <span class="espacio-link">Descubrir</span>
+        </div>
+      </div>
+
+      <!-- Chimenea -->
+      <div class="espacio-card">
+        <img class="espacio-img" src="https://www.martilota.com/imgs/IMG_1786.jpg" alt="Espacio Chimenea de Martilota con sillones cómodos" />
+        <div class="espacio-overlay">
+          <div class="espacio-num">03</div>
+          <div class="espacio-name">La Chimenea</div>
+          <div class="espacio-desc">El rincón más acogedor de Martilota. Sillones cómodos y mesas bajas para sobremesas largas al calor del fuego.</div>
+          <span class="espacio-link">Descubrir</span>
+        </div>
+      </div>
+
+      <!-- Barra -->
+      <div class="espacio-card">
+        <img class="espacio-img" src="https://www.martilota.com/imgs/IMG_1842-uai-2064x1405.jpg" alt="La Barra de Martilota con cócteles" />
+        <div class="espacio-overlay">
+          <div class="espacio-num">04</div>
+          <div class="espacio-name">La Barra</div>
+          <div class="espacio-desc">Disfruta de los platos de nuestra carta o de uno de nuestros magníficos cócteles. Un lugar diferente en Alcalá.</div>
+          <span class="espacio-link">Descubrir</span>
+        </div>
+      </div>
+
+      <!-- Terraza Interior -->
+      <div class="espacio-card">
+        <img class="espacio-img" src="https://www.martilota.com/imgs/DSC1249.jpg" alt="Terraza Interior de Martilota con vegetación" />
+        <div class="espacio-overlay">
+          <div class="espacio-num">05</div>
+          <div class="espacio-name">Terraza Interior</div>
+          <div class="espacio-desc">Vegetación que evoca lugares exóticos. Sombra y frescor en verano, calor acogedor en invierno. Pet-friendly.</div>
+          <span class="espacio-link">Descubrir</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARTA con imagen real comida.jpg -->
+  <section class="carta">
+    <div class="sec-head">
+      <div class="sec-eyebrow" style="color:#E5C3B8;">Nuestra carta</div>
+      <h2>Cocina mediterránea<br><em>de raíz y producto</em></h2>
+      <p>Sin artificios. Ingredientes de temporada, técnica honesta y sabores que se quedan contigo.</p>
+    </div>
+    <div class="carta-grid">
+      <div class="carta-img-wrap">
+        <img src="https://www.martilota.com/cartas/comida.jpg" alt="Plato de la carta de Restaurante Martilota" />
+      </div>
+      <div class="carta-content">
+        <h3>Descubre la <em>carta completa</em></h3>
+        <p>Desde nuestros platos de carta hasta los desayunos, postres caseros y selección de vinos. Una experiencia gastronómica pensada en cada detalle.</p>
+        <div class="carta-list">
+          <div class="carta-item"><span class="carta-item-num">01</span> Carta principal</div>
+          <div class="carta-item"><span class="carta-item-num">02</span> Menú diario</div>
+          <div class="carta-item"><span class="carta-item-num">03</span> Postres caseros</div>
+          <div class="carta-item"><span class="carta-item-num">04</span> Carta de vinos</div>
+          <div class="carta-item"><span class="carta-item-num">05</span> Coctelería</div>
+          <div class="carta-item"><span class="carta-item-num">06</span> Cervezas</div>
+          <div class="carta-item"><span class="carta-item-num">07</span> Meriendas</div>
+          <div class="carta-item"><span class="carta-item-num">08</span> Desayunos</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENÚ SEMANAL -->
+  <section class="semanal">
+    <div class="semanal-card">
+      <div class="sec-eyebrow">Menú diario</div>
+      <h3>Menú semanal<br><em>de cocina honesta</em></h3>
+      <div class="semanal-price">16,50<small>€</small></div>
+      <p>Cada día una propuesta distinta. Crema de calabaza y batata asada con picadillo de almendras, segundo a elegir, postre y bebida. De lunes a viernes al mediodía.</p>
+      <a href="carta/" style="text-decoration:none;"><button class="btn-dark">Ver el menú de esta semana</button></a>
+    </div>
+  </section>
+
+  <!-- COFFEE con foto real -->
+  <section class="coffee">
+    <div class="coffee-grid">
+      <div class="coffee-content">
+        <div class="sec-eyebrow">Martilota Coffee</div>
+        <h3>Por la mañana,<br><em>otro Martilota</em></h3>
+        <p>Café de especialidad, repostería casera y meriendas que merecen pausa. Nuestra línea diurna para quienes saben que el buen comer empieza desde el desayuno.</p>
+        <a href="carta/" style="text-decoration:none;"><button class="btn-dark">Descubrir Coffee</button></a>
+      </div>
+      <div class="coffee-img-wrap">
+        <img src="https://www.martilota.com/cartas/cafes.webp" alt="Martilota Coffee · café de especialidad" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ALCALÁ -->
+  <section class="alcala">
+    <div class="alcala-img-wrap">
+      <img src="https://www.martilota.com/imgs/DSC2167.jpg" alt="Fachada de Martilota en Plaza de la Paloma, Alcalá de Henares" />
+    </div>
+    <div class="alcala-text">
+      <div class="sec-eyebrow">Visítanos</div>
+      <h2>En el corazón de<br><em>Alcalá de Henares</em></h2>
+      <p>No hay mejor sitio para disfrutar de una cocina evocadora y única que las calles complutenses, llenas de historia y de lugares reconocidos como Patrimonio de la Humanidad por la UNESCO.</p>
+      <p>A pocos pasos del Museo Casa Natal de Cervantes y de la histórica Universidad de Alcalá.</p>
+      <a href="https://maps.google.com/?q=Restaurante+Martilota+Plaza+de+la+Paloma+Alcalá+de+Henares" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;"><div class="alcala-address">Plaza de la Paloma, s/n · 28801 Alcalá de Henares</div></a>
+      <a href="donde-estamos/" style="text-decoration:none; display:inline-block; margin-top:28px;"><button class="btn-dark">Cómo llegar</button></a>
+    </div>
+  </section>
+
+  <!-- RESERVA FINAL -->
+  <section class="reserva">
+    <div class="hero-eyebrow" style="color:#E5C3B8;">Reserva tu mesa</div>
+    <h2>Tu próxima<br><em>experiencia favorita</em></h2>
+    <p>Disponibilidad en tiempo real. Reserva en menos de un minuto.</p>
+    <div class="hero-ctas">
+      <a href="donde-estamos/" style="text-decoration:none;"><button class="btn-primary">Reservar ahora</button></a>
+      <a href="tel:+34917653982" style="text-decoration:none;"><button class="btn-secondary">Llamar al 917 65 39 82</button></a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">MARTILOTA</div>
+        <a href="https://maps.google.com/?q=Restaurante+Martilota+Plaza+de+la+Paloma+Alcalá+de+Henares" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
+          <p>Plaza de la Paloma, s/n</p>
+          <p>28801 Alcalá de Henares, Madrid</p>
+        </a>
+        <p style="margin-top: 16px;"><a href="mailto:reservas@martilota.com" style="color:inherit;">reservas@martilota.com</a></p>
+        <p><a href="tel:+34917653982" style="color:inherit;">917 65 39 82</a></p>
+      </div>
+      <div>
+        <h4>Espacios</h4>
+        <a>Terraza Mirador</a>
+        <a>El Restaurante</a>
+        <a>La Chimenea</a>
+        <a>La Barra</a>
+        <a>Terraza Interior</a>
+      </div>
+      <div>
+        <h4>Carta</h4>
+        <a>Carta principal</a>
+        <a>Menú semanal</a>
+        <a>Vinos y cócteles</a>
+        <a>Coffee</a>
+        <a>Eventos privados</a>
+      </div>
+      <div>
+        <h4>Síguenos</h4>
+        <a>Instagram</a>
+        <a>Facebook</a>
+        <a>TripAdvisor</a>
+        <a>Google</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Restaurante Martilota · Todos los derechos reservados</span>
+      <span>Aviso legal · Privacidad · Cookies</span>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP -->
+  <a href="https://wa.me/34917653982?text=Hola%2C%20quer%C3%ADa%20reservar%20mesa%20en%20Martilota" target="_blank" rel="noopener" style="text-decoration:none;"><div class="wa-float" title="Reserva por WhatsApp">💬</div></a>
+
+  <script>
+    // Hacer las cards de espacios clicables (en este prototipo, todas llevan a Dónde estamos como demo de navegación)
+    document.querySelectorAll('.espacio-card').forEach(card => {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', () => {
+        window.location.href = 'donde-estamos/';
+      });
+    });
+
+    // Items de la lista de carta llevan a la página de carta
+    document.querySelectorAll('.carta-item').forEach(item => {
+      item.addEventListener('click', () => {
+        window.location.href = 'carta/';
+      });
+    });
+
+    // Imagen grande de carta también lleva
+    const cartaImg = document.querySelector('.carta-img-wrap');
+    if (cartaImg) {
+      cartaImg.style.cursor = 'pointer';
+      cartaImg.addEventListener('click', () => {
+        window.location.href = 'carta/';
+      });
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carta · Restaurante Martilota Alcalá de Henares</title>
+  <meta name="description" content="Descubre la carta completa del Restaurante Martilota en Alcalá de Henares. Sugerencias del chef, platos para compartir, carnes, pescados, arroces y menú infantil." />
+  <link rel="canonical" href="./" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Libre+Franklin:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Libre Franklin', -apple-system, sans-serif; color: #1A1A1A; background: #F5F7F7; -webkit-font-smoothing: antialiased; line-height: 1.5; }
+    img { display: block; max-width: 100%; }
+
+    /* === NAVEGACIÓN === */
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 48px; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 0.5px solid rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 100; }
+    .nav-left, .nav-right { display: flex; gap: 28px; align-items: center; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #1A1A1A; }
+    .nav-left span, .nav-right span { cursor: pointer; transition: color 0.2s; }
+    .nav-left span:hover, .nav-right span:hover { color: #CB6037; }
+    .nav-left span.active, .nav-right span.active { color: #CB6037; }
+    .nav-logo { font-family: 'Cormorant Infant', serif; font-size: 22px; letter-spacing: 0.25em; font-weight: 500; cursor: pointer; }
+    .nav-cta { background: #1A1A1A; color: #fff; padding: 11px 22px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; border: none; cursor: pointer; font-family: inherit; transition: background 0.2s; }
+    .nav-cta:hover { background: #CB6037; }
+
+    /* === HERO CARTA === */
+    .carta-hero { position: relative; padding: 80px 32px 50px; background: #1A1A1A; color: #fff; text-align: center; overflow: hidden; }
+    .carta-hero::before { content: ''; position: absolute; inset: 0; background: url('https://www.martilota.com/cartas/comida.jpg') center/cover; opacity: 0.25; }
+    .carta-hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+    .hero-eyebrow { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: #E5C3B8; margin-bottom: 24px; font-weight: 500; }
+    .carta-hero h1 { font-family: 'Cormorant Infant', serif; font-size: 80px; font-weight: 300; line-height: 1; letter-spacing: -0.02em; margin-bottom: 18px; }
+    .carta-hero h1 em { font-style: italic; }
+    .carta-hero p { font-family: 'Cormorant Infant', serif; font-size: 22px; font-style: italic; max-width: 560px; margin: 0 auto; line-height: 1.4; color: rgba(255,255,255,0.92); }
+
+    /* === FILTROS DE CATEGORÍAS === */
+    .filtros { background: #fff; padding: 22px 32px; position: sticky; top: 67px; z-index: 50; border-bottom: 0.5px solid rgba(0,0,0,0.08); }
+    .filtros-grid { display: flex; gap: 0; justify-content: center; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
+    .filtro { padding: 10px 22px; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; cursor: pointer; transition: all 0.2s; color: #6A6A6A; border-bottom: 1px solid transparent; font-weight: 400; }
+    .filtro:hover { color: #1A1A1A; }
+    .filtro.active { color: #CB6037; border-bottom-color: #CB6037; font-weight: 500; }
+
+    /* === CONTENIDO CARTA === */
+    .carta-wrap { max-width: 1080px; margin: 0 auto; padding: 70px 32px 100px; }
+    .categoria { margin-bottom: 80px; }
+    .cat-head { text-align: center; margin-bottom: 48px; }
+    .cat-eyebrow { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: #CB6037; margin-bottom: 14px; font-weight: 500; }
+    .cat-head h2 { font-family: 'Cormorant Infant', serif; font-size: 52px; font-weight: 300; line-height: 1.05; letter-spacing: -0.02em; }
+    .cat-head h2 em { font-style: italic; color: #CB6037; }
+    .cat-divider { display: flex; align-items: center; gap: 14px; max-width: 100px; margin: 18px auto 0; }
+    .cat-divider hr { flex: 1; border: 0; border-top: 0.5px solid #CB6037; }
+    .cat-divider span { color: #CB6037; font-size: 8px; }
+
+    /* === PLATOS === */
+    .platos { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 48px; }
+    .plato { padding: 18px 0; border-bottom: 0.5px dashed rgba(0,0,0,0.15); display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: start; cursor: default; }
+    .plato-info { min-width: 0; }
+    .plato-nombre { font-family: 'Cormorant Infant', serif; font-size: 22px; font-weight: 500; line-height: 1.2; margin-bottom: 8px; color: #1A1A1A; letter-spacing: -0.005em; }
+    .plato-desc { font-size: 13px; line-height: 1.55; color: #4A4A4A; font-weight: 300; }
+    .plato-precio { font-family: 'Cormorant Infant', serif; font-size: 24px; font-weight: 500; font-style: italic; color: #CB6037; white-space: nowrap; line-height: 1.2; }
+    .plato-opcion { font-size: 12px; color: #6A6A6A; font-style: italic; margin-top: 4px; }
+    .plato-meta { font-size: 11px; color: #6A6A6A; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 6px; }
+
+    /* === ALÉRGENOS POR PLATO === */
+    .plato-alergenos { display: flex; gap: 6px; margin-top: 12px; flex-wrap: wrap; }
+    .a-icon { width: 24px; height: 24px; border-radius: 50%; background: #F5F7F7; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; color: #6A6A6A; border: 0.5px solid rgba(0,0,0,0.08); cursor: help; transition: all 0.2s; letter-spacing: 0; font-family: 'Libre Franklin', sans-serif; position: relative; }
+    .a-icon:hover { background: #CB6037; color: #fff; border-color: #CB6037; transform: scale(1.08); }
+    .a-icon:hover::after { content: attr(data-name); position: absolute; bottom: 130%; left: 50%; transform: translateX(-50%); background: #1A1A1A; color: #fff; padding: 5px 10px; font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; border-radius: 3px; z-index: 10; pointer-events: none; }
+    .a-icon:hover::before { content: ''; position: absolute; bottom: 116%; left: 50%; transform: translateX(-50%); border: 4px solid transparent; border-top-color: #1A1A1A; z-index: 10; }
+    /* Variante "menú adaptable" */
+    .a-icon.adapt { background: #fff; border-style: dashed; }
+    /* Variante "sin / apto" */
+    .a-icon.libre { background: #4A8056; color: #fff; border-color: #4A8056; }
+
+    /* === LEYENDA ALÉRGENOS (nota legal) === */
+    .leyenda-alergenos { background: #fff; padding: 50px 32px; border-top: 0.5px solid rgba(0,0,0,0.06); }
+    .leyenda-wrap { max-width: 1080px; margin: 0 auto; }
+    .leyenda-head { text-align: center; margin-bottom: 32px; }
+    .leyenda-head h3 { font-family: 'Cormorant Infant', serif; font-size: 28px; font-weight: 400; margin-bottom: 10px; }
+    .leyenda-head h3 em { font-style: italic; color: #CB6037; }
+    .leyenda-head p { color: #4A4A4A; font-size: 13px; max-width: 620px; margin: 0 auto; line-height: 1.6; }
+    .leyenda-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 14px 18px; padding-top: 8px; }
+    .leyenda-item { display: flex; align-items: center; gap: 8px; }
+    .leyenda-item .a-icon { cursor: default; }
+    .leyenda-item .a-icon:hover { background: #F5F7F7; color: #6A6A6A; border-color: rgba(0,0,0,0.08); transform: none; }
+    .leyenda-item .a-icon:hover::after, .leyenda-item .a-icon:hover::before { display: none; }
+    .leyenda-text { font-size: 11px; color: #4A4A4A; letter-spacing: 0.04em; }
+    .leyenda-nota { margin-top: 28px; padding-top: 24px; border-top: 0.5px dashed rgba(0,0,0,0.1); font-size: 12px; color: #6A6A6A; text-align: center; line-height: 1.6; font-style: italic; max-width: 720px; margin-left: auto; margin-right: auto; }
+
+    /* === MENÚ INFANTIL DESTACADO === */
+    .infantil { background: #F5F7F7; padding: 80px 32px; text-align: center; }
+    .infantil-card { max-width: 700px; margin: 0 auto; background: #fff; padding: 60px 40px; border: 0.5px solid rgba(0,0,0,0.06); }
+    .infantil-card .cat-eyebrow { margin-bottom: 14px; }
+    .infantil-card h3 { font-family: 'Cormorant Infant', serif; font-size: 40px; font-weight: 300; margin-bottom: 14px; line-height: 1.1; }
+    .infantil-card h3 em { font-style: italic; color: #CB6037; }
+    .infantil-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 32px; }
+    .infantil-item { text-align: left; padding-top: 20px; border-top: 0.5px solid rgba(0,0,0,0.1); }
+    .infantil-name { font-family: 'Cormorant Infant', serif; font-size: 19px; font-weight: 500; margin-bottom: 6px; }
+    .infantil-desc { font-size: 13px; color: #4A4A4A; line-height: 1.55; margin-bottom: 10px; }
+    .infantil-precio { font-family: 'Cormorant Infant', serif; font-size: 22px; font-style: italic; color: #CB6037; font-weight: 500; }
+
+    /* === CTA RESERVA === */
+    .cta-reserva { padding: 100px 32px; background: #1A1A1A; color: #fff; text-align: center; }
+    .cta-reserva h2 { font-family: 'Cormorant Infant', serif; font-size: 56px; font-weight: 300; line-height: 1.05; max-width: 680px; margin: 14px auto 24px; letter-spacing: -0.025em; }
+    .cta-reserva h2 em { font-style: italic; color: #E5C3B8; }
+    .cta-reserva p { color: rgba(255,255,255,0.75); font-size: 16px; margin-bottom: 36px; }
+    .btn-primary { background: #CB6037; color: #fff; padding: 18px 36px; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; border: none; cursor: pointer; font-family: inherit; font-weight: 500; transition: background 0.2s; }
+    .btn-primary:hover { background: #A04D2C; }
+    .btn-secondary { background: transparent; color: #fff; padding: 18px 36px; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.8); cursor: pointer; font-family: inherit; font-weight: 500; transition: all 0.2s; }
+    .btn-secondary:hover { background: #fff; color: #1A1A1A; }
+    .ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* === FOOTER === */
+    .footer { background: #0F0F0F; color: rgba(255,255,255,0.6); padding: 60px 48px 30px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto 40px; }
+    .footer-logo { font-family: 'Cormorant Infant', serif; color: #fff; font-size: 26px; letter-spacing: 0.22em; margin-bottom: 18px; font-weight: 500; }
+    .footer p { font-size: 13px; line-height: 1.7; margin-bottom: 6px; }
+    .footer h4 { font-family: 'Cormorant Infant', serif; color: #fff; margin-bottom: 14px; font-size: 17px; font-weight: 400; font-style: italic; }
+    .footer a { color: rgba(255,255,255,0.6); display: block; font-size: 13px; padding: 4px 0; cursor: pointer; text-decoration: none; transition: color 0.2s; }
+    .footer a:hover { color: #CB6037; }
+    .footer p a { display: inline; padding: 0; }
+    .footer a p { transition: color 0.2s; margin: 0; padding: 2px 0; }
+    .footer a:hover p { color: #CB6037; }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; border-top: 0.5px solid rgba(255,255,255,0.12); padding-top: 24px; display: flex; justify-content: space-between; font-size: 11px; color: rgba(255,255,255,0.45); flex-wrap: wrap; gap: 12px; }
+
+    /* WHATSAPP */
+    .wa-float { position: fixed; bottom: 28px; right: 28px; width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 28px; cursor: pointer; z-index: 90; box-shadow: 0 8px 24px rgba(0,0,0,0.18); transition: transform 0.2s; }
+    .wa-float:hover { transform: scale(1.08); }
+
+    @media (max-width: 900px) {
+      .nav { padding: 14px 20px; }
+      .nav-left, .nav-right { display: none; }
+      .carta-hero h1 { font-size: 50px; }
+      .carta-hero p { font-size: 18px; }
+      .filtros { padding: 16px 12px; }
+      .filtro { padding: 8px 12px; font-size: 10px; }
+      .platos { grid-template-columns: 1fr; gap: 4px 0; }
+      .cat-head h2 { font-size: 36px; }
+      .infantil-grid { grid-template-columns: 1fr; }
+      .infantil-card { padding: 40px 24px; }
+      .cta-reserva h2 { font-size: 36px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+      .carta-wrap { padding: 50px 20px 70px; }
+      .leyenda-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVEGACIÓN -->
+  <nav class="nav">
+    <div class="nav-left">
+      <a href="../" style="color:inherit; text-decoration:none;"><span>Inicio</span></a>
+      <span class="active">Carta</span>
+      <span>Coffee</span>
+    </div>
+    <a href="../" style="color:inherit; text-decoration:none;"><div class="nav-logo">MARTILOTA</div></a>
+    <div class="nav-right">
+      <span>Eventos</span>
+      <a href="../donde-estamos/" style="color:inherit; text-decoration:none;"><span>Visítanos</span></a>
+      <a href="../donde-estamos/" style="color:inherit; text-decoration:none;"><button class="nav-cta">Reservar</button></a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="carta-hero">
+    <div class="carta-hero-content">
+      <div class="hero-eyebrow">Nuestra carta</div>
+      <h1>Cocina mediterránea<br><em>de raíz y producto</em></h1>
+      <p>Sin artificios. Ingredientes de temporada, técnica honesta y sabores que se quedan contigo.</p>
+    </div>
+  </section>
+
+  <!-- FILTROS -->
+  <div class="filtros">
+    <div class="filtros-grid">
+      <div class="filtro active">Todo</div>
+      <div class="filtro">Sugerencias del chef</div>
+      <div class="filtro">Para compartir</div>
+      <div class="filtro">Carnes y pescados</div>
+      <div class="filtro">Arroces</div>
+      <div class="filtro">Menú infantil</div>
+    </div>
+  </div>
+
+  <!-- CARTA COMPLETA -->
+  <div class="carta-wrap">
+
+    <!-- SUGERENCIAS DEL CHEF -->
+    <div class="categoria">
+      <div class="cat-head">
+        <div class="cat-eyebrow">Lo más especial</div>
+        <h2>Sugerencias <em>del chef</em></h2>
+        <div class="cat-divider"><hr><span>◆</span><hr></div>
+      </div>
+      <div class="platos">
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Ensaladilla de pulpo ahumado</div>
+            <div class="plato-desc">Aliñada con AOVE de ajo frito y pimentón de la Vera.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Crustáceos">CR</span>
+              <span class="a-icon" data-name="Huevos">H</span>
+              <span class="a-icon" data-name="Pescado">P</span>
+              <span class="a-icon" data-name="Sulfitos">SU</span>
+            </div>
+          </div>
+          <div class="plato-precio">14,90€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Gofre de foie</div>
+            <div class="plato-desc">Con cremoso de maracuyá y Pedro Ximénez.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Gluten">G</span>
+              <span class="a-icon" data-name="Huevos">H</span>
+              <span class="a-icon" data-name="Lácteos">L</span>
+              <span class="a-icon" data-name="Sulfitos">SU</span>
+            </div>
+          </div>
+          <div class="plato-precio">29,90€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Nido de sepia</div>
+            <div class="plato-desc">Sepia cortada en tallarín y salteada acompañada de un falso risotto de sémola de trigo en su tinta.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Gluten">G</span>
+              <span class="a-icon" data-name="Moluscos">M</span>
+            </div>
+          </div>
+          <div class="plato-precio">17,90€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Huevos rotos de corral</div>
+            <div class="plato-desc">Con gambones al ajillo y patata panadera.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Crustáceos">CR</span>
+              <span class="a-icon" data-name="Huevos">H</span>
+            </div>
+          </div>
+          <div class="plato-precio">17,90€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Tacos de manitas estilo thay</div>
+            <div class="plato-desc">Con pico de gallo de piña y mayonesa de membrillo (3 und).</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Gluten">G</span>
+              <span class="a-icon" data-name="Huevos">H</span>
+              <span class="a-icon" data-name="Sésamo">SE</span>
+              <span class="a-icon" data-name="Soja">S</span>
+            </div>
+          </div>
+          <div class="plato-precio">14,90€</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PARA COMPARTIR -->
+    <div class="categoria">
+      <div class="cat-head">
+        <div class="cat-eyebrow">Mesa redonda</div>
+        <h2>Para <em>compartir</em></h2>
+        <div class="cat-divider"><hr><span>◆</span><hr></div>
+      </div>
+      <div class="platos">
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Ensalada de tomate rosa con caballa</div>
+            <div class="plato-desc">Aliñado con aceite de albahaca y polvo de aceituna negra.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Pescado">P</span>
+            </div>
+          </div>
+          <div class="plato-precio">15,90€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Croquetas de jamón</div>
+            <div class="plato-desc">6 unidades.</div>
+            <div class="plato-opcion">Opción de 3 unidades (6,90€)</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Gluten">G</span>
+              <span class="a-icon" data-name="Huevos">H</span>
+              <span class="a-icon" data-name="Lácteos">L</span>
+            </div>
+          </div>
+          <div class="plato-precio">12,90€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Croquetas de jamón ibérico sin gluten</div>
+            <div class="plato-desc">6 unidades.</div>
+            <div class="plato-opcion">Opción de 3 unidades (6,90€)</div>
+            <div class="plato-alergenos">
+              <span class="a-icon libre" data-name="Sin gluten">SG</span>
+              <span class="a-icon" data-name="Huevos">H</span>
+              <span class="a-icon" data-name="Lácteos">L</span>
+            </div>
+          </div>
+          <div class="plato-precio">13,90€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Tortilla trufada</div>
+            <div class="plato-desc">Tortilla estilo Betanzos aromatizada con trufa y con espuma de patata.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Huevos">H</span>
+              <span class="a-icon" data-name="Lácteos">L</span>
+            </div>
+          </div>
+          <div class="plato-precio">15,90€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Zamburiña a la brasa</div>
+            <div class="plato-desc">Con holandesa de ajo escalibado y salicornia (1 und).</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Moluscos">M</span>
+              <span class="a-icon" data-name="Huevos">H</span>
+              <span class="a-icon" data-name="Lácteos">L</span>
+            </div>
+          </div>
+          <div class="plato-precio">4,95€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Parrillada de verduras con romesco</div>
+            <div class="plato-desc">Selección de verduras de temporada asadas al carbón de encina.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Frutos de cáscara">FC</span>
+              <span class="a-icon adapt" data-name="Adaptable vegano">VG</span>
+            </div>
+          </div>
+          <div class="plato-precio">17,50€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Papas y batatas bravas</div>
+            <div class="plato-desc">Con espuma de alioli ligero y salsa brava Martilota.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Huevos">H</span>
+            </div>
+          </div>
+          <div class="plato-precio">15,90€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Gyozas de pollo de corral al curry</div>
+            <div class="plato-desc">Con mayonesa japonesa e hilos de chile.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Gluten">G</span>
+              <span class="a-icon" data-name="Huevos">H</span>
+              <span class="a-icon" data-name="Soja">S</span>
+              <span class="a-icon" data-name="Sésamo">SE</span>
+            </div>
+          </div>
+          <div class="plato-precio">17,90€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Torrezno frito Martilota</div>
+            <div class="plato-desc">Patata revolcona ligeramente picante y mayonesa de piparra.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Huevos">H</span>
+              <span class="a-icon" data-name="Mostaza">MO</span>
+            </div>
+          </div>
+          <div class="plato-precio">16,50€</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CARNES Y PESCADOS -->
+    <div class="categoria">
+      <div class="cat-head">
+        <div class="cat-eyebrow">Producto y brasa</div>
+        <h2>Carnes y <em>pescados</em></h2>
+        <div class="cat-divider"><hr><span>◆</span><hr></div>
+      </div>
+      <div class="platos">
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Steak tartar de solomillo de vaca madurada</div>
+            <div class="plato-desc">Aliñado con mostaza Dijon, aceite ahumado, grasa madurada y yema curada al Jerez.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Huevos">H</span>
+              <span class="a-icon" data-name="Mostaza">MO</span>
+              <span class="a-icon" data-name="Sulfitos">SU</span>
+            </div>
+          </div>
+          <div class="plato-precio">24,90€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Cachopo de ternera</div>
+            <div class="plato-desc">Relleno de cecina, queso Scamorza ahumado y pimiento del piquillo caramelizado con huevo untuoso y patatas gajo.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Gluten">G</span>
+              <span class="a-icon" data-name="Huevos">H</span>
+              <span class="a-icon" data-name="Lácteos">L</span>
+            </div>
+          </div>
+          <div class="plato-precio">23,90€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Presa de cerdo ibérico a la brasa</div>
+            <div class="plato-desc">Con patata revolcona, mayonesa de pimiento del piquillo caramelizado y salsa Riojana.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Huevos">H</span>
+              <span class="a-icon" data-name="Sulfitos">SU</span>
+            </div>
+          </div>
+          <div class="plato-precio">24,50€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Entraña de ternera a la brasa</div>
+            <div class="plato-desc">Con salsa gaucha y patatas rústicas.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Mostaza">MO</span>
+            </div>
+          </div>
+          <div class="plato-precio">22,90€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Entrecot de vaca a la brasa</div>
+            <div class="plato-desc">Acompañado de patatas panaderas (300 g).</div>
+            <div class="plato-opcion">Opción 400 g (32,90€)</div>
+            <div class="plato-alergenos">
+              <span class="a-icon libre" data-name="Sin alérgenos">✓</span>
+            </div>
+          </div>
+          <div class="plato-precio">24,90€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Hamburguesa de vaca madurada</div>
+            <div class="plato-desc">Con mermelada de bacon, queso cheddar y salsa mil islas.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Gluten">G</span>
+              <span class="a-icon" data-name="Huevos">H</span>
+              <span class="a-icon" data-name="Lácteos">L</span>
+              <span class="a-icon" data-name="Mostaza">MO</span>
+            </div>
+          </div>
+          <div class="plato-precio">19,90€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Chipirones encebollados</div>
+            <div class="plato-desc">Sobre cama de cebolla caramelizada con jugo de jamón ibérico y habitas baby salteadas, emulsión de tinta y sus patitas a la andaluza.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Moluscos">M</span>
+              <span class="a-icon" data-name="Gluten">G</span>
+            </div>
+          </div>
+          <div class="plato-precio">21,90€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Merluza a baja temperatura</div>
+            <div class="plato-desc">Con raviolis de txangurro y camarón rojo con salsa americana ligeramente picante.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Pescado">P</span>
+              <span class="a-icon" data-name="Crustáceos">CR</span>
+              <span class="a-icon" data-name="Gluten">G</span>
+              <span class="a-icon" data-name="Huevos">H</span>
+            </div>
+          </div>
+          <div class="plato-precio">22,90€</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ARROCES -->
+    <div class="categoria">
+      <div class="cat-head">
+        <div class="cat-eyebrow">Cocinados al momento</div>
+        <h2>Nuestros <em>arroces</em></h2>
+        <div class="cat-divider"><hr><span>◆</span><hr></div>
+      </div>
+      <div class="platos">
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Arroz cremoso de pluma ibérica y setas confitadas</div>
+            <div class="plato-meta">Precio por persona · Mínimo 2 personas</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Lácteos">L</span>
+            </div>
+          </div>
+          <div class="plato-precio">21,50€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Arroz meloso de gambón</div>
+            <div class="plato-desc">Mantecado con americana de su coral acompañado de gambón asado.</div>
+            <div class="plato-meta">Precio por persona · Mínimo 2 personas</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Crustáceos">CR</span>
+              <span class="a-icon" data-name="Pescado">P</span>
+            </div>
+          </div>
+          <div class="plato-precio">21,90€</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MENÚ INFANTIL -->
+  <section class="infantil">
+    <div class="infantil-card">
+      <div class="cat-eyebrow">Para los más pequeños</div>
+      <h3>Menú <em>infantil</em></h3>
+      <div class="infantil-grid">
+        <div class="infantil-item">
+          <div class="infantil-name">Menú infantil</div>
+          <div class="infantil-desc">Pasta boloñesa y fingers de pollo, o fingers de pollo con patatas fritas.</div>
+          <div class="plato-alergenos" style="margin-top:8px; margin-bottom:10px;">
+            <span class="a-icon" data-name="Gluten">G</span>
+            <span class="a-icon" data-name="Huevos">H</span>
+            <span class="a-icon" data-name="Lácteos">L</span>
+          </div>
+          <div class="infantil-precio">15,90€</div>
+        </div>
+        <div class="infantil-item">
+          <div class="infantil-name">Menú infantil sin gluten</div>
+          <div class="infantil-desc">2 unidades de croquetas sin gluten, fingers de pollo y patatas fritas.</div>
+          <div class="plato-alergenos" style="margin-top:8px; margin-bottom:10px;">
+            <span class="a-icon libre" data-name="Sin gluten">SG</span>
+            <span class="a-icon" data-name="Huevos">H</span>
+            <span class="a-icon" data-name="Lácteos">L</span>
+          </div>
+          <div class="infantil-precio">17,90€</div>
+        </div>
+      </div>
+      <p style="font-size: 12px; color: #6A6A6A; font-style: italic; margin-top: 32px;">Suplemento pan y aperitivo de 1,50€ por persona</p>
+    </div>
+  </section>
+
+  <!-- LEYENDA DE ALÉRGENOS -->
+  <section class="leyenda-alergenos">
+    <div class="leyenda-wrap">
+      <div class="leyenda-head">
+        <h3>Información de <em>alérgenos</em></h3>
+        <p>Conforme al Reglamento UE 1169/2011. Pasa el ratón sobre cada icono de la carta para conocer su significado. Si tienes alguna alergia o intolerancia, infórmanos antes de pedir — adaptamos nuestros platos siempre que sea posible.</p>
+      </div>
+      <div class="leyenda-grid">
+        <div class="leyenda-item"><span class="a-icon">G</span><span class="leyenda-text">Gluten</span></div>
+        <div class="leyenda-item"><span class="a-icon">CR</span><span class="leyenda-text">Crustáceos</span></div>
+        <div class="leyenda-item"><span class="a-icon">H</span><span class="leyenda-text">Huevos</span></div>
+        <div class="leyenda-item"><span class="a-icon">P</span><span class="leyenda-text">Pescado</span></div>
+        <div class="leyenda-item"><span class="a-icon">CA</span><span class="leyenda-text">Cacahuetes</span></div>
+        <div class="leyenda-item"><span class="a-icon">S</span><span class="leyenda-text">Soja</span></div>
+        <div class="leyenda-item"><span class="a-icon">L</span><span class="leyenda-text">Lácteos</span></div>
+        <div class="leyenda-item"><span class="a-icon">FC</span><span class="leyenda-text">F. cáscara</span></div>
+        <div class="leyenda-item"><span class="a-icon">AP</span><span class="leyenda-text">Apio</span></div>
+        <div class="leyenda-item"><span class="a-icon">MO</span><span class="leyenda-text">Mostaza</span></div>
+        <div class="leyenda-item"><span class="a-icon">SE</span><span class="leyenda-text">Sésamo</span></div>
+        <div class="leyenda-item"><span class="a-icon">SU</span><span class="leyenda-text">Sulfitos</span></div>
+        <div class="leyenda-item"><span class="a-icon">AL</span><span class="leyenda-text">Altramuces</span></div>
+        <div class="leyenda-item"><span class="a-icon">M</span><span class="leyenda-text">Moluscos</span></div>
+      </div>
+      <div class="leyenda-nota">
+        <span class="a-icon libre" style="margin-right:6px;">SG</span> Indica plato apto para celíacos o sin gluten ·
+        <span class="a-icon adapt" style="margin: 0 6px;">VG</span> Indica plato adaptable a opción vegetariana o vegana
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA RESERVA -->
+  <section class="cta-reserva">
+    <div class="hero-eyebrow" style="color:#E5C3B8;">Reserva tu mesa</div>
+    <h2>¿Te ha entrado<br><em>el hambre?</em></h2>
+    <p>Tu próxima experiencia favorita te espera en Plaza de la Paloma.</p>
+    <div class="ctas">
+      <a href="../donde-estamos/" style="text-decoration:none;"><button class="btn-primary">Reservar ahora</button></a>
+      <a href="tel:+34917653982" style="text-decoration:none;"><button class="btn-secondary">Llamar al 917 65 39 82</button></a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">MARTILOTA</div>
+        <a href="https://maps.google.com/?q=Restaurante+Martilota+Plaza+de+la+Paloma+Alcalá+de+Henares" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
+          <p>Plaza de la Paloma, s/n</p>
+          <p>28801 Alcalá de Henares, Madrid</p>
+        </a>
+        <p style="margin-top: 14px;"><a href="mailto:reservas@martilota.com" style="color:inherit;">reservas@martilota.com</a></p>
+        <p><a href="tel:+34917653982" style="color:inherit;">917 65 39 82</a></p>
+      </div>
+      <div>
+        <h4>Espacios</h4>
+        <a>Terraza Mirador</a>
+        <a>El Restaurante</a>
+        <a>La Chimenea</a>
+        <a>La Barra</a>
+        <a>Terraza Interior</a>
+      </div>
+      <div>
+        <h4>Carta</h4>
+        <a>Carta principal</a>
+        <a>Menú semanal</a>
+        <a>Vinos y cócteles</a>
+        <a>Coffee</a>
+      </div>
+      <div>
+        <h4>Síguenos</h4>
+        <a>Instagram</a>
+        <a>Facebook</a>
+        <a>TripAdvisor</a>
+        <a>Google</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Restaurante Martilota</span>
+      <span>Aviso legal · Privacidad · Cookies</span>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/34917653982?text=Hola%2C%20quer%C3%ADa%20reservar%20mesa%20en%20Martilota" target="_blank" rel="noopener" style="text-decoration:none;"><div class="wa-float" title="WhatsApp">💬</div></a>
+
+  <script>
+    // Filtros interactivos: scroll a categoría
+    const filtros = document.querySelectorAll('.filtro');
+    const categorias = document.querySelectorAll('.categoria');
+    filtros.forEach((f, i) => {
+      f.addEventListener('click', () => {
+        filtros.forEach(x => x.classList.remove('active'));
+        f.classList.add('active');
+        if (i === 0) {
+          window.scrollTo({top: 0, behavior: 'smooth'});
+        } else if (categorias[i-1]) {
+          categorias[i-1].scrollIntoView({behavior: 'smooth', block: 'start'});
+        } else if (i === 5) {
+          // Menú infantil
+          document.querySelector('.infantil').scrollIntoView({behavior: 'smooth', block: 'start'});
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
