@@ -53,27 +53,51 @@
     .intro-text em { font-style: italic; color: #CB6037; }
 
     /* === ESPACIOS === */
-    .espacios { padding: 100px 48px; background: #fff; }
+    .espacios { padding: 100px 0 100px; background: #fff; }
+    .espacios > .sec-head { padding: 0 48px; }
     .sec-head { text-align: center; max-width: 720px; margin: 0 auto 64px; }
     .sec-eyebrow { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: #CB6037; margin-bottom: 18px; font-weight: 500; }
     .sec-head h2 { font-family: 'Cormorant Infant', serif; font-size: 56px; font-weight: 300; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 20px; }
     .sec-head h2 em { font-style: italic; }
     .sec-head p { color: #4A4A4A; font-size: 16px; line-height: 1.65; max-width: 540px; margin: 0 auto; }
 
-    .espacios-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 1200px; margin: 0 auto; }
-    .espacio-card { position: relative; overflow: hidden; cursor: pointer; }
-    .espacio-card.featured { grid-column: span 2; }
-    .espacio-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-    .espacio-card { height: 360px; }
-    .espacio-card.featured { height: 480px; }
-    .espacio-card:hover .espacio-img { transform: scale(1.04); }
-    .espacio-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.75) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 36px; color: #fff; }
-    .espacio-num { font-family: 'Cormorant Infant', serif; font-size: 14px; opacity: 0.85; margin-bottom: 8px; letter-spacing: 0.18em; font-style: italic; }
-    .espacio-name { font-family: 'Cormorant Infant', serif; font-size: 42px; line-height: 1.1; margin-bottom: 12px; font-weight: 300; letter-spacing: -0.01em; }
-    .espacio-card.featured .espacio-name { font-size: 56px; }
-    .espacio-desc { font-size: 14px; opacity: 0.92; line-height: 1.55; max-width: 480px; margin-bottom: 16px; }
-    .espacio-link { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #fff; opacity: 0.9; }
-    .espacio-link::after { content: ' →'; }
+    /* === CARRUSELES DE ESPACIOS === */
+    .espacios-list { display: flex; flex-direction: column; gap: 0; max-width: 1400px; margin: 0 auto; }
+    .espacio-row { display: grid; align-items: stretch; }
+    .espacio-row:nth-child(odd)  { grid-template-columns: 1fr 420px; }
+    .espacio-row:nth-child(even) { grid-template-columns: 420px 1fr; }
+    .espacio-row:nth-child(even) .espacio-carousel { order: 2; }
+    .espacio-row:nth-child(even) .espacio-info  { order: 1; }
+
+    /* Carrusel */
+    .espacio-carousel { position: relative; overflow: hidden; height: 480px; }
+    .espacio-carousel-track { display: flex; height: 100%; transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94); will-change: transform; }
+    .espacio-slide { flex: 0 0 100%; height: 100%; position: relative; }
+    .espacio-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* Flechas */
+    .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.92); border: none; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; transition: all 0.2s; box-shadow: 0 4px 16px rgba(0,0,0,0.18); color: #1A1A1A; }
+    .carousel-btn:hover { background: #CB6037; color: #fff; transform: translateY(-50%) scale(1.06); }
+    .carousel-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .carousel-btn.prev { left: 16px; }
+    .carousel-btn.next { right: 16px; }
+
+    /* Puntos */
+    .carousel-dots { position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10; }
+    .carousel-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.5); border: none; cursor: pointer; padding: 0; transition: all 0.2s; }
+    .carousel-dot.active { background: #fff; transform: scale(1.2); }
+
+    /* Info lateral */
+    .espacio-info { background: #1A1A1A; color: #fff; display: flex; flex-direction: column; justify-content: center; padding: 56px 52px; }
+    .espacio-num { font-family: 'Cormorant Infant', serif; font-size: 13px; letter-spacing: 0.22em; font-style: italic; color: #E5C3B8; margin-bottom: 16px; opacity: 0.9; }
+    .espacio-name { font-family: 'Cormorant Infant', serif; font-size: 46px; font-weight: 400; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 20px; }
+    .espacio-name em { font-style: italic; color: #E5C3B8; }
+    .espacio-desc { font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.78); margin-bottom: 32px; }
+    .espacio-tag { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
+    .espacio-photo-count { font-family: 'Cormorant Infant', serif; font-size: 13px; font-style: italic; color: rgba(255,255,255,0.45); margin-top: auto; }
+
+    /* Línea divisora entre filas */
+    .espacio-row + .espacio-row { border-top: 1px solid rgba(255,255,255,0.06); }
 
     /* === CARTA === */
     .carta { padding: 110px 48px; background: #1A1A1A; color: #fff; }
@@ -175,9 +199,15 @@
       .btn-primary, .btn-secondary { padding: 16px 24px; }
       .intro-text { font-size: 26px; }
       .sec-head h2 { font-size: 38px; }
-      .espacios-grid { grid-template-columns: 1fr; }
-      .espacio-card.featured { grid-column: span 1; height: 360px; }
-      .espacio-name { font-size: 32px !important; }
+      .espacio-row { grid-template-columns: 1fr !important; }
+      .espacio-row:nth-child(even) .espacio-carousel,
+      .espacio-row:nth-child(even) .espacio-info { order: unset; }
+      .espacio-carousel { height: 260px; }
+      .espacio-info { padding: 32px 24px; }
+      .espacio-name { font-size: 34px; }
+      .carousel-btn { width: 36px; height: 36px; }
+      .carousel-btn svg { width: 14px; height: 14px; }
+      .espacios > .sec-head { padding: 0 20px; }
       .carta-grid { grid-template-columns: 1fr; gap: 32px; }
       .carta-img-wrap img { height: 360px; }
       .carta-content h3 { font-size: 36px; }
@@ -267,68 +297,136 @@
     <p class="intro-text">Martilota nace como respuesta a nuestras inquietudes, viajes por sitios inimaginables y experiencias que nos han llenado y conquistado. Ahora nuestro trabajo es <em>conquistarte a ti</em> con una experiencia gastronómica que querrás repetir.</p>
   </section>
 
-  <!-- ESPACIOS con fotos reales de cada uno -->
+  <!-- ESPACIOS — carruseles con fotos reales -->
   <section class="espacios">
     <div class="sec-head">
       <div class="sec-eyebrow">Nuestros espacios</div>
       <h2>Cinco escenarios,<br><em>una misma pasión</em></h2>
       <p>Cada espacio en Martilota tiene su propia personalidad. Elige el que mejor encaje con tu plan.</p>
     </div>
-    <div class="espacios-grid">
-      <!-- Terraza Mirador (insignia) -->
-      <div class="espacio-card featured">
-        <img class="espacio-img" src="https://www.martilota.com/imgs/Martilota_sept2020-98.jpg" alt="Terraza Mirador de Martilota con vistas a Alcalá de Henares" />
-        <div class="espacio-overlay">
+
+    <div class="espacios-list">
+
+      <!-- 01 · Terraza Mirador -->
+      <div class="espacio-row">
+        <div class="espacio-carousel" data-carousel>
+          <div class="espacio-carousel-track">
+            <div class="espacio-slide"><img src="https://www.martilota.com/imgs/Martilota_sept2020-98.jpg" alt="Terraza Mirador — vista panorámica" loading="lazy" /></div>
+            <div class="espacio-slide"><img src="https://www.martilota.com/imgs/Martilota_sept2020-79.jpg" alt="Terraza Mirador — ambiente de tarde" loading="lazy" /></div>
+            <div class="espacio-slide"><img src="https://www.martilota.com/imgs/Martilota_sept2020-50-e1602235612817.jpg" alt="Terraza Mirador — detalle" loading="lazy" /></div>
+          </div>
+          <button class="carousel-btn prev" aria-label="Anterior"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+          <button class="carousel-btn next" aria-label="Siguiente"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></button>
+          <div class="carousel-dots">
+            <button class="carousel-dot active"></button>
+            <button class="carousel-dot"></button>
+            <button class="carousel-dot"></button>
+          </div>
+        </div>
+        <div class="espacio-info">
           <div class="espacio-num">01 · Espacio insignia</div>
-          <div class="espacio-name">Terraza Mirador</div>
-          <div class="espacio-desc">Disfruta de los días de buena temperatura y del solecito con vistas al mejor atardecer de Alcalá. Un espacio amplio, perfecto también para eventos.</div>
-          <span class="espacio-link">Descubrir el espacio</span>
+          <div class="espacio-name">Terraza <em>Mirador</em></div>
+          <p class="espacio-desc">Disfruta de los días de buena temperatura y del solecito con vistas al mejor atardecer de Alcalá. Un espacio amplio, con capacidad para grupos y eventos privados.</p>
+          <div class="espacio-tag">3 fotos</div>
         </div>
       </div>
 
-      <!-- El Restaurante -->
-      <div class="espacio-card">
-        <img class="espacio-img" src="https://www.martilota.com/imgs/espacios-elrestaurante-3.webp" alt="Comedor principal del Restaurante Martilota" />
-        <div class="espacio-overlay">
+      <!-- 02 · El Restaurante -->
+      <div class="espacio-row">
+        <div class="espacio-info">
           <div class="espacio-num">02</div>
-          <div class="espacio-name">El Restaurante</div>
-          <div class="espacio-desc">Nuestra cocina con ingredientes cuidadosamente seleccionados. Carta innovadora con toque mediterráneo.</div>
-          <span class="espacio-link">Descubrir</span>
+          <div class="espacio-name">El <em>Restaurante</em></div>
+          <p class="espacio-desc">Nuestra cocina con ingredientes cuidadosamente seleccionados. Carta innovadora con toque mediterráneo, en un ambiente elegante y acogedor.</p>
+          <div class="espacio-tag">3 fotos</div>
+        </div>
+        <div class="espacio-carousel" data-carousel>
+          <div class="espacio-carousel-track">
+            <div class="espacio-slide"><img src="https://www.martilota.com/imgs/espacios-elrestaurante-4.webp" alt="El Restaurante — comedor principal" loading="lazy" /></div>
+            <div class="espacio-slide"><img src="https://www.martilota.com/imgs/espacios-elrestaurante-3.webp" alt="El Restaurante — detalle de mesa" loading="lazy" /></div>
+            <div class="espacio-slide"><img src="https://www.martilota.com/imgs/espacios-elrestaurante-2.webp" alt="El Restaurante — ambiente" loading="lazy" /></div>
+          </div>
+          <button class="carousel-btn prev" aria-label="Anterior"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+          <button class="carousel-btn next" aria-label="Siguiente"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></button>
+          <div class="carousel-dots">
+            <button class="carousel-dot active"></button>
+            <button class="carousel-dot"></button>
+            <button class="carousel-dot"></button>
+          </div>
         </div>
       </div>
 
-      <!-- Chimenea -->
-      <div class="espacio-card">
-        <img class="espacio-img" src="https://www.martilota.com/imgs/IMG_1786.jpg" alt="Espacio Chimenea de Martilota con sillones cómodos" />
-        <div class="espacio-overlay">
+      <!-- 03 · La Chimenea -->
+      <div class="espacio-row">
+        <div class="espacio-carousel" data-carousel>
+          <div class="espacio-carousel-track">
+            <div class="espacio-slide"><img src="https://www.martilota.com/imgs/IMG_1786.jpg" alt="La Chimenea — ambiente acogedor" loading="lazy" /></div>
+            <div class="espacio-slide"><img src="https://www.martilota.com/imgs/DSC2122.jpg" alt="La Chimenea — sillones y fuego" loading="lazy" /></div>
+            <div class="espacio-slide"><img src="https://www.martilota.com/imgs/DSC1911-2.jpg" alt="La Chimenea — detalle" loading="lazy" /></div>
+          </div>
+          <button class="carousel-btn prev" aria-label="Anterior"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+          <button class="carousel-btn next" aria-label="Siguiente"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></button>
+          <div class="carousel-dots">
+            <button class="carousel-dot active"></button>
+            <button class="carousel-dot"></button>
+            <button class="carousel-dot"></button>
+          </div>
+        </div>
+        <div class="espacio-info">
           <div class="espacio-num">03</div>
-          <div class="espacio-name">La Chimenea</div>
-          <div class="espacio-desc">El rincón más acogedor de Martilota. Sillones cómodos y mesas bajas para sobremesas largas al calor del fuego.</div>
-          <span class="espacio-link">Descubrir</span>
+          <div class="espacio-name">La <em>Chimenea</em></div>
+          <p class="espacio-desc">El rincón más acogedor de Martilota. Sillones cómodos y mesas bajas para sobremesas largas al calor del fuego.</p>
+          <div class="espacio-tag">3 fotos</div>
         </div>
       </div>
 
-      <!-- Barra -->
-      <div class="espacio-card">
-        <img class="espacio-img" src="https://www.martilota.com/imgs/IMG_1842-uai-2064x1405.jpg" alt="La Barra de Martilota con cócteles" />
-        <div class="espacio-overlay">
+      <!-- 04 · La Barra -->
+      <div class="espacio-row">
+        <div class="espacio-info">
           <div class="espacio-num">04</div>
-          <div class="espacio-name">La Barra</div>
-          <div class="espacio-desc">Disfruta de los platos de nuestra carta o de uno de nuestros magníficos cócteles. Un lugar diferente en Alcalá.</div>
-          <span class="espacio-link">Descubrir</span>
+          <div class="espacio-name">La <em>Barra</em></div>
+          <p class="espacio-desc">Disfruta de los platos de nuestra carta o de uno de nuestros magníficos cócteles. Un lugar diferente en Alcalá, con ambiente nocturno único.</p>
+          <div class="espacio-tag">3 fotos</div>
+        </div>
+        <div class="espacio-carousel" data-carousel>
+          <div class="espacio-carousel-track">
+            <div class="espacio-slide"><img src="https://www.martilota.com/imgs/DSC2128.jpg" alt="La Barra — vista general" loading="lazy" /></div>
+            <div class="espacio-slide"><img src="https://www.martilota.com/imgs/IMG_1804-2-uai-2064x1402.jpg" alt="La Barra — cócteles" loading="lazy" /></div>
+            <div class="espacio-slide"><img src="https://www.martilota.com/imgs/IMG_1842-uai-2064x1405.jpg" alt="La Barra — detalle" loading="lazy" /></div>
+          </div>
+          <button class="carousel-btn prev" aria-label="Anterior"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+          <button class="carousel-btn next" aria-label="Siguiente"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></button>
+          <div class="carousel-dots">
+            <button class="carousel-dot active"></button>
+            <button class="carousel-dot"></button>
+            <button class="carousel-dot"></button>
+          </div>
         </div>
       </div>
 
-      <!-- Terraza Interior -->
-      <div class="espacio-card">
-        <img class="espacio-img" src="https://www.martilota.com/imgs/DSC1249.jpg" alt="Terraza Interior de Martilota con vegetación" />
-        <div class="espacio-overlay">
-          <div class="espacio-num">05</div>
-          <div class="espacio-name">Terraza Interior</div>
-          <div class="espacio-desc">Vegetación que evoca lugares exóticos. Sombra y frescor en verano, calor acogedor en invierno. Pet-friendly.</div>
-          <span class="espacio-link">Descubrir</span>
+      <!-- 05 · Terraza Interior -->
+      <div class="espacio-row">
+        <div class="espacio-carousel" data-carousel>
+          <div class="espacio-carousel-track">
+            <div class="espacio-slide"><img src="https://www.martilota.com/imgs/DSC1249.jpg" alt="Terraza Interior — vegetación tropical" loading="lazy" /></div>
+            <div class="espacio-slide"><img src="https://www.martilota.com/imgs/DSC1831.jpg" alt="Terraza Interior — ambiente" loading="lazy" /></div>
+            <div class="espacio-slide"><img src="https://www.martilota.com/imgs/DSC1957.jpg" alt="Terraza Interior — detalle" loading="lazy" /></div>
+          </div>
+          <button class="carousel-btn prev" aria-label="Anterior"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+          <button class="carousel-btn next" aria-label="Siguiente"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></button>
+          <div class="carousel-dots">
+            <button class="carousel-dot active"></button>
+            <button class="carousel-dot"></button>
+            <button class="carousel-dot"></button>
+          </div>
+        </div>
+        <div class="espacio-info">
+          <div class="espacio-num">05 · Pet-friendly</div>
+          <div class="espacio-name">Terraza <em>Interior</em></div>
+          <p class="espacio-desc">Vegetación que evoca lugares exóticos. Sombra y frescor en verano, calor acogedor en invierno. El único espacio donde puedes venir con tu mascota.</p>
+          <div class="espacio-tag">3 fotos</div>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -474,11 +572,32 @@
       navMobile.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggle(false)));
     })();
 
-    // Hacer las cards de espacios clicables (en este prototipo, todas llevan a Dónde estamos como demo de navegación)
-    document.querySelectorAll('.espacio-card').forEach(card => {
-      card.style.cursor = 'pointer';
-      card.addEventListener('click', () => {
-        window.location.href = 'donde-estamos/';
+    // === CARRUSELES DE ESPACIOS ===
+    document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
+      var track   = carousel.querySelector('.espacio-carousel-track');
+      var slides  = carousel.querySelectorAll('.espacio-slide');
+      var dots    = carousel.querySelectorAll('.carousel-dot');
+      var btnPrev = carousel.querySelector('.carousel-btn.prev');
+      var btnNext = carousel.querySelector('.carousel-btn.next');
+      var total   = slides.length;
+      var current = 0;
+
+      function goTo(idx) {
+        current = (idx + total) % total;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        dots.forEach(function(d, i) { d.classList.toggle('active', i === current); });
+      }
+
+      if (btnPrev) btnPrev.addEventListener('click', function(e) { e.stopPropagation(); goTo(current - 1); });
+      if (btnNext) btnNext.addEventListener('click', function(e) { e.stopPropagation(); goTo(current + 1); });
+      dots.forEach(function(dot, i) { dot.addEventListener('click', function(e) { e.stopPropagation(); goTo(i); }); });
+
+      // Swipe táctil
+      var touchStartX = 0;
+      carousel.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; }, { passive: true });
+      carousel.addEventListener('touchend',   function(e) {
+        var diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
       });
     });
 
