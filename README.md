@@ -2,7 +2,7 @@
 
 Web del Restaurante Martilota (Alcalá de Henares).
 
-Versión online: https://jenn-jt.github.io/martilkota/
+Versión online: https://jenn-jt.github.io/martilota/
 
 ## Páginas
 
