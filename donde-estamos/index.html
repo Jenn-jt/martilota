@@ -246,11 +246,43 @@
     @media (max-width: 380px) {
       .hero h1 { font-size: 26px; }
       .info-item { padding: 14px 10px; }
-      .info-value { font-size: 13px; }
-      .info-label { font-size: 9px; }
       .sec-head h2 { font-size: 26px; }
       .cta-reserva h2 { font-size: 24px; }
       .nav-logo img { height: 22px; }
+    }
+
+    /* ── ACCESIBILIDAD TIPOGRÁFICA — pisos mínimos en móvil ──
+       WCAG AA: cuerpo ≥16px · UI secundaria ≥14px · etiquetas ≥12px */
+    @media (max-width: 768px) {
+      body { font-size: 16px; line-height: 1.6; }
+      /* Tarjeta info rápida */
+      .info-label { font-size: 12px; letter-spacing: 0.14em; }
+      .info-value { font-size: 16px; }
+      .info-sub { font-size: 13px; }
+      /* Ficha de dirección */
+      .direccion-label { font-size: 12px; letter-spacing: 0.14em; }
+      .direccion-value { font-size: 16px; }
+      /* Subtítulo hero */
+      .hero-sub { font-size: 16px; }
+      /* Descripción de lugares */
+      .lugar p { font-size: 15px; line-height: 1.65; }
+      .lugar h3 { font-size: 22px; }
+      .lugar-distancia { font-size: 12px; }
+      /* Cómo llegar */
+      .cl-card p { font-size: 15px; line-height: 1.65; }
+      .cl-card h3 { font-size: 20px; }
+      /* Descripción principal */
+      .desc-content p { font-size: 16px; line-height: 1.75; }
+      .desc-eyebrow { font-size: 12px; }
+      /* Mapa info */
+      .mapa-info p { font-size: 15px; line-height: 1.7; }
+      .mapa-info .desc-eyebrow { font-size: 12px; }
+      /* CTA */
+      .cta-reserva p { font-size: 16px; }
+      /* Footer */
+      .footer p, .footer a { font-size: 14px; }
+      /* Botones */
+      .btn-primary, .btn-secondary { font-size: 11px; letter-spacing: 0.16em; }
     }
   </style>
 </head>

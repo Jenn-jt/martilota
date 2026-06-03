@@ -237,6 +237,39 @@
       .leyenda-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
       .nav-logo img { height: 22px; }
     }
+
+    /* ── ACCESIBILIDAD TIPOGRÁFICA — pisos mínimos en móvil ──
+       WCAG AA: cuerpo ≥16px · UI secundaria ≥14px · etiquetas ≥12px */
+    @media (max-width: 768px) {
+      body { font-size: 16px; line-height: 1.6; }
+      /* Nombre del plato */
+      .plato-nombre { font-size: 19px; }
+      /* Descripción del plato — texto cuerpo, crítico */
+      .plato-desc { font-size: 15px; line-height: 1.6; color: #2A2A2A; }
+      /* Precio */
+      .plato-precio { font-size: 22px; }
+      .plato-precio.small { font-size: 19px; }
+      /* Opciones y meta */
+      .plato-opcion { font-size: 13px; }
+      .plato-meta { font-size: 12px; }
+      /* Filtros — nunca menos de 12px */
+      .filtro { font-size: 12px; }
+      /* Eyebrows y categorías */
+      .cat-eyebrow, .hero-eyebrow { font-size: 12px; }
+      /* Subcategorías */
+      .subcat-head { font-size: 20px; }
+      /* Leyenda de alérgenos */
+      .leyenda-text { font-size: 13px; }
+      .leyenda-nota { font-size: 13px; line-height: 1.7; }
+      .leyenda-head p { font-size: 14px; }
+      /* Infantil */
+      .infantil-desc { font-size: 14px; }
+      .infantil-precio { font-size: 22px; }
+      /* Footer */
+      .footer p, .footer a { font-size: 14px; }
+      /* CTAs */
+      .btn-primary, .btn-secondary { font-size: 11px; letter-spacing: 0.16em; }
+    }
   </style>
 </head>
 <body>
