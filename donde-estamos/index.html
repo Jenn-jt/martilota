@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Libre+Franklin:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -38,7 +39,8 @@
     /* === INFO RÁPIDA === */
     .info-rapida { background: #fff; padding: 30px 32px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1200px; margin: -50px auto 0; position: relative; z-index: 5; border: 0.5px solid rgba(0,0,0,0.06); box-shadow: 0 20px 60px rgba(0,0,0,0.08); }
     .info-item { padding: 16px; text-align: center; }
-    .info-icon { font-size: 28px; margin-bottom: 12px; color: #CB6037; }
+    .info-icon { display: flex; align-items: center; justify-content: center; margin-bottom: 12px; color: #CB6037; }
+    .info-icon svg { width: 28px; height: 28px; stroke: currentColor; fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; display: block; }
     .info-label { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #6A6A6A; margin-bottom: 8px; font-weight: 500; }
     .info-value { font-family: 'Cormorant Infant', serif; font-size: 19px; font-weight: 500; line-height: 1.3; color: #1A1A1A; }
     .info-value em { font-style: italic; color: #CB6037; }
@@ -69,7 +71,8 @@
     .mapa-info p { color: rgba(255,255,255,0.78); font-size: 15px; line-height: 1.7; margin-bottom: 36px; }
     .direccion-card { padding-top: 28px; border-top: 0.5px solid rgba(255,255,255,0.15); margin-top: 8px; }
     .direccion-row { display: flex; gap: 18px; padding: 14px 0; align-items: flex-start; border-bottom: 0.5px solid rgba(255,255,255,0.08); }
-    .direccion-icon { font-size: 18px; color: #CB6037; min-width: 24px; padding-top: 2px; }
+    .direccion-icon { color: #CB6037; min-width: 24px; display: flex; align-items: flex-start; padding-top: 2px; }
+    .direccion-icon svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; display: block; flex-shrink: 0; }
     .direccion-text { flex: 1; }
     .direccion-label { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 4px; font-weight: 500; }
     .direccion-value { color: #fff; font-size: 15px; }
@@ -102,7 +105,8 @@
     .como-llegar { padding: 100px 32px; background: #F5F7F7; }
     .cl-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 1100px; margin: 60px auto 0; }
     .cl-card { background: #fff; padding: 40px 32px; text-align: center; border: 0.5px solid rgba(0,0,0,0.06); }
-    .cl-icon { font-size: 36px; margin-bottom: 18px; color: #CB6037; }
+    .cl-icon { display: flex; align-items: center; justify-content: center; margin-bottom: 18px; color: #CB6037; }
+    .cl-icon svg { width: 36px; height: 36px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; display: block; }
     .cl-card h3 { font-family: 'Cormorant Infant', serif; font-size: 24px; font-weight: 500; margin-bottom: 12px; }
     .cl-card p { font-size: 13px; color: #4A4A4A; line-height: 1.6; }
 
@@ -216,26 +220,26 @@
   <div class="info-rapida">
     <div class="info-item">
       <a href="https://maps.google.com/?q=Restaurante+Martilota+Plaza+de+la+Paloma+Alcalá+de+Henares" target="_blank" rel="noopener" style="text-decoration:none; color:inherit; display:block;">
-        <div class="info-icon">📍</div>
+        <div class="info-icon"><i data-lucide="map-pin"></i></div>
         <div class="info-label">Dirección</div>
         <div class="info-value">Plaza de la <em>Paloma</em></div>
         <div class="info-sub">28801 Alcalá de Henares</div>
       </a>
     </div>
     <div class="info-item">
-      <div class="info-icon">📞</div>
+      <div class="info-icon"><i data-lucide="phone"></i></div>
       <div class="info-label">Reservas</div>
       <div class="info-value">917 65 39 82</div>
       <div class="info-sub">reservas@martilota.com</div>
     </div>
     <div class="info-item">
-      <div class="info-icon">🕐</div>
+      <div class="info-icon"><i data-lucide="clock"></i></div>
       <div class="info-label">Horario</div>
       <div class="info-value">Abierto <em>hoy</em></div>
       <div class="info-sub">Hasta la 1:00</div>
     </div>
     <div class="info-item">
-      <div class="info-icon">🐶</div>
+      <div class="info-icon"><i data-lucide="paw-print"></i></div>
       <div class="info-label">Bienvenidos</div>
       <div class="info-value">Pet-<em>friendly</em></div>
       <div class="info-sub">Terraza interior</div>
@@ -274,28 +278,28 @@
 
         <div class="direccion-card">
           <div class="direccion-row">
-            <div class="direccion-icon">📍</div>
+            <div class="direccion-icon"><i data-lucide="map-pin"></i></div>
             <div class="direccion-text">
               <div class="direccion-label">Dirección completa</div>
               <div class="direccion-value"><a href="https://maps.google.com/?q=Restaurante+Martilota+Plaza+de+la+Paloma+Alcalá+de+Henares" target="_blank" rel="noopener">Plaza de la Paloma, s/n<br>28801 Alcalá de Henares, Madrid</a></div>
             </div>
           </div>
           <div class="direccion-row">
-            <div class="direccion-icon">📞</div>
+            <div class="direccion-icon"><i data-lucide="phone"></i></div>
             <div class="direccion-text">
               <div class="direccion-label">Teléfono</div>
               <div class="direccion-value"><a href="tel:+34917653982">917 65 39 82</a></div>
             </div>
           </div>
           <div class="direccion-row">
-            <div class="direccion-icon">✉️</div>
+            <div class="direccion-icon"><i data-lucide="mail"></i></div>
             <div class="direccion-text">
               <div class="direccion-label">Email reservas</div>
               <div class="direccion-value"><a href="mailto:reservas@martilota.com">reservas@martilota.com</a></div>
             </div>
           </div>
           <div class="direccion-row" style="border-bottom: 0;">
-            <div class="direccion-icon">🕐</div>
+            <div class="direccion-icon"><i data-lucide="clock"></i></div>
             <div class="direccion-text">
               <div class="direccion-label">Horario</div>
               <div class="direccion-value">Lunes a domingo · 9:00 – 01:00<br><span style="color:rgba(255,255,255,0.55); font-size:13px;">Para llevar: 13:30 – 16:00</span></div>
@@ -349,17 +353,17 @@
     </div>
     <div class="cl-grid">
       <div class="cl-card">
-        <div class="cl-icon">🚗</div>
+        <div class="cl-icon"><i data-lucide="car"></i></div>
         <h3>En coche</h3>
         <p>Salida desde la A-2 dirección Zaragoza. Parking público a 200m en Plaza de Cervantes y zona azul en alrededores.</p>
       </div>
       <div class="cl-card">
-        <div class="cl-icon">🚆</div>
+        <div class="cl-icon"><i data-lucide="train"></i></div>
         <h3>En Cercanías</h3>
         <p>Estación Alcalá de Henares (línea C-2 y C-7). 10 minutos caminando hasta el restaurante por la Calle Libreros.</p>
       </div>
       <div class="cl-card">
-        <div class="cl-icon">🚌</div>
+        <div class="cl-icon"><i data-lucide="bus"></i></div>
         <h3>En autobús</h3>
         <p>Líneas interurbanas 223, 224, 227 y 229 desde Madrid. Parada Cuatro Caños a 3 minutos andando.</p>
       </div>
@@ -421,6 +425,9 @@
   <a href="https://wa.me/34917653982?text=Hola%2C%20quer%C3%ADa%20reservar%20mesa%20en%20Martilota" target="_blank" rel="noopener" style="text-decoration:none;"><div class="wa-float" title="WhatsApp">💬</div></a>
 
   <script>
+    // Inicializar Lucide Icons
+    window.addEventListener('load', function() { if (window.lucide) window.lucide.createIcons(); });
+
     // Menú hamburguesa móvil
     (function(){
       const burger = document.querySelector('.nav-burger');
