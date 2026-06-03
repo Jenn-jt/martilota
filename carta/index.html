@@ -150,26 +150,92 @@
     .nav-mobile a.active { color: #CB6037; font-style: italic; }
     .nav-mobile .nav-cta { display: inline-block; margin-top: 24px; text-align: center; padding: 16px 28px; font-size: 11px; letter-spacing: 0.22em; }
 
-    @media (max-width: 900px) {
+    /* =============================================
+       RESPONSIVE SYSTEM — carta
+       1024px · 768px · 480px · 380px
+    ============================================= */
+
+    /* ── 1024px ── */
+    @media (max-width: 1024px) {
+      .nav { padding: 16px 32px; }
+      .carta-hero h1 { font-size: clamp(44px, 7vw, 80px); }
+      .carta-wrap { padding: 60px 28px 80px; }
+      .platos { gap: 20px 36px; }
+      .cat-head h2 { font-size: clamp(32px, 5vw, 52px); }
+      .leyenda-grid { grid-template-columns: repeat(5, 1fr); }
+      .cta-reserva { padding: 80px 32px; }
+      .cta-reserva h2 { font-size: clamp(32px, 5vw, 56px); }
+      .footer { padding: 56px 32px 28px; }
+    }
+
+    /* ── 768px ── */
+    @media (max-width: 768px) {
       .nav { padding: 14px 20px; }
       .nav-left, .nav-right { display: none; }
       .nav-burger { display: block; }
-      .carta-hero { padding: 60px 24px 40px; }
-      .carta-hero h1 { font-size: 46px; }
-      .carta-hero p { font-size: 17px; }
-      .filtros { padding: 12px 0; top: 70px; }
+      /* Hero carta */
+      .carta-hero { padding: 56px 24px 36px; }
+      .carta-hero h1 { font-size: clamp(36px, 9vw, 52px); }
+      .carta-hero p { font-size: 16px; }
+      /* Filtros sticky: scroll horizontal */
+      .filtros { padding: 10px 0; top: 70px; }
       .filtros-grid { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; padding: 0 16px; gap: 4px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
       .filtros-grid::-webkit-scrollbar { display: none; }
-      .filtro { padding: 8px 14px; font-size: 10px; white-space: nowrap; flex-shrink: 0; }
-      .platos { grid-template-columns: 1fr; gap: 4px 0; }
-      .cat-head h2 { font-size: 36px; }
-      .infantil-grid { grid-template-columns: 1fr; }
-      .infantil-card { padding: 40px 24px; }
-      .cta-reserva h2 { font-size: 36px; }
+      .filtro { padding: 10px 16px; font-size: 10px; white-space: nowrap; flex-shrink: 0; min-height: 44px; display: flex; align-items: center; }
+      /* Platos: 1 columna con separador */
+      .carta-wrap { padding: 48px 20px 64px; }
+      .categoria { margin-bottom: 56px; }
+      .platos { grid-template-columns: 1fr; gap: 0; }
+      .plato { padding: 20px 0; gap: 12px; }
+      .plato-nombre { font-size: 19px; }
+      .plato-desc { font-size: 13px; }
+      .plato-precio { font-size: 20px; }
+      .cat-head { margin-bottom: 32px; }
+      .cat-head h2 { font-size: clamp(28px, 7vw, 40px); }
+      /* Subcategorías */
+      .subcat-head { font-size: 18px; margin: 36px 0 16px; }
+      /* Infantil */
+      .infantil { padding: 56px 20px; }
+      .infantil-card { padding: 36px 20px; }
+      .infantil-card h3 { font-size: 32px; }
+      .infantil-grid { grid-template-columns: 1fr; gap: 24px; }
+      /* Leyenda */
+      .leyenda-alergenos { padding: 40px 20px; }
+      .leyenda-grid { grid-template-columns: repeat(4, 1fr); gap: 14px; }
+      .leyenda-head h3 { font-size: 24px; }
+      /* CTA reserva */
+      .cta-reserva { padding: 64px 24px; }
+      .cta-reserva h2 { font-size: clamp(28px, 7vw, 40px); }
+      .ctas { flex-wrap: wrap; gap: 12px; justify-content: center; }
+      /* Footer */
+      .footer { padding: 48px 20px 24px; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
-      .carta-wrap { padding: 50px 20px 70px; }
-      .leyenda-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-      .wa-float { bottom: 18px; right: 18px; width: 50px; height: 50px; font-size: 22px; }
+      .footer-bottom { flex-direction: column; gap: 8px; }
+      /* WA */
+      .wa-float { bottom: 16px; right: 16px; width: 50px; height: 50px; }
+    }
+
+    /* ── 480px ── */
+    @media (max-width: 480px) {
+      .carta-hero h1 { font-size: clamp(28px, 10vw, 38px); }
+      .carta-hero p { font-size: 14px; }
+      .plato { grid-template-columns: 1fr auto; gap: 8px; }
+      .plato-nombre { font-size: 17px; }
+      .plato-precio { font-size: 18px; }
+      .leyenda-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+      .ctas { flex-direction: column; align-items: stretch; }
+      .ctas a { display: block; }
+      .ctas button { width: 100%; min-height: 52px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+
+    /* ── 380px ── */
+    @media (max-width: 380px) {
+      .carta-hero h1 { font-size: 26px; }
+      .plato-nombre { font-size: 16px; }
+      .cat-head h2 { font-size: 26px; }
+      .leyenda-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .nav-logo img { height: 22px; }
     }
   </style>
 </head>

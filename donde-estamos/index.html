@@ -153,31 +153,104 @@
     .nav-mobile a.active { color: #CB6037; font-style: italic; }
     .nav-mobile .nav-cta { display: inline-block; margin-top: 24px; text-align: center; padding: 16px 28px; font-size: 11px; letter-spacing: 0.22em; }
 
-    @media (max-width: 900px) {
+    /* =============================================
+       RESPONSIVE SYSTEM — donde-estamos
+       1024px · 768px · 480px · 380px
+    ============================================= */
+
+    /* ── 1024px ── */
+    @media (max-width: 1024px) {
+      .nav { padding: 16px 32px; }
+      .hero h1 { font-size: clamp(44px, 7vw, 80px); }
+      .mapa-grid { grid-template-columns: 1fr 1fr; }
+      .mapa-info { padding: 60px 44px; }
+      .mapa-info h2 { font-size: 40px; }
+      .desc-content h2 { font-size: clamp(32px, 5vw, 56px); }
+      .lugares-grid { grid-template-columns: repeat(3, 1fr); }
+      .cl-grid { grid-template-columns: repeat(3, 1fr); }
+      .cta-reserva h2 { font-size: clamp(36px, 5vw, 64px); }
+      .descripcion, .alrededores, .como-llegar { padding: 80px 32px; }
+      .footer { padding: 56px 32px 28px; }
+    }
+
+    /* ── 768px ── */
+    @media (max-width: 768px) {
       .nav { padding: 14px 20px; }
       .nav-left, .nav-right { display: none; }
       .nav-burger { display: block; }
-      .hero h1 { font-size: 50px; }
-      .hero-sub { font-size: 17px; }
-      .info-rapida { grid-template-columns: 1fr 1fr; gap: 12px; margin-top: -30px; padding: 22px 16px; }
-      .info-item { padding: 12px 8px; }
-      .desc-grid { grid-template-columns: 1fr; gap: 40px; }
-      .desc-img-wrap { height: 360px; }
-      .desc-content h2 { font-size: 36px; }
+      /* Hero */
+      .hero { min-height: 440px; }
+      .hero h1 { font-size: clamp(32px, 9vw, 50px); }
+      .hero-sub { font-size: 15px; }
+      /* Info rápida: 2x2 grid pegado bajo el hero */
+      .info-rapida { grid-template-columns: 1fr 1fr; gap: 0; margin-top: 0; padding: 0; border: none; box-shadow: none; }
+      .info-item { padding: 20px 16px; border: 0.5px solid rgba(0,0,0,0.06); }
+      .info-value { font-size: 16px; }
+      .info-sub { font-size: 11px; }
+      /* Descripción */
+      .descripcion { padding: 56px 24px; }
+      .desc-grid { grid-template-columns: 1fr; gap: 32px; }
+      .desc-img-wrap { height: 280px; }
+      .desc-content h2 { font-size: clamp(26px, 7vw, 40px); }
+      .desc-content p { font-size: 15px; }
+      /* Mapa */
+      .mapa-section { padding: 0; }
       .mapa-grid { grid-template-columns: 1fr; }
-      .mapa-info { padding: 50px 24px; }
-      .mapa-info h2 { font-size: 32px; }
-      .mapa-iframe-wrap { min-height: 360px; }
-      .lugares-grid { grid-template-columns: 1fr; }
-      .cl-grid { grid-template-columns: 1fr; gap: 16px; }
-      .sec-head h2 { font-size: 36px; }
-      .cta-reserva h2 { font-size: 38px; }
-      .descripcion, .alrededores, .como-llegar { padding: 70px 20px; }
+      .mapa-info { padding: 44px 24px; order: 2; }
+      .mapa-iframe-wrap { order: 1; min-height: 300px; }
+      .mapa-info h2 { font-size: clamp(26px, 7vw, 36px); }
+      .mapa-cta-overlay { bottom: 16px; left: 16px; right: 16px; }
+      .mapa-cta-btn { padding: 12px 18px; font-size: 10px; min-height: 44px; }
+      /* Alrededores */
+      .alrededores { padding: 56px 24px; }
+      .sec-head h2 { font-size: clamp(28px, 6vw, 44px); }
+      .lugares-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .lugar { padding: 24px 20px; }
+      .lugar h3 { font-size: 20px; }
+      /* Cómo llegar */
+      .como-llegar { padding: 56px 24px; }
+      .cl-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .cl-card { padding: 28px 20px; }
+      .cl-icon svg { width: 28px; height: 28px; }
+      /* CTA final */
+      .cta-reserva { padding: 64px 24px; }
+      .cta-reserva h2 { font-size: clamp(28px, 7vw, 44px); }
+      .ctas { gap: 12px; justify-content: center; flex-wrap: wrap; }
+      /* Footer */
+      .footer { padding: 48px 20px 24px; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
-      .wa-float { bottom: 18px; right: 18px; width: 50px; height: 50px; font-size: 22px; }
+      .footer-bottom { flex-direction: column; gap: 8px; }
+      /* WA */
+      .wa-float { bottom: 16px; right: 16px; width: 50px; height: 50px; }
+    }
+
+    /* ── 480px ── */
+    @media (max-width: 480px) {
+      .hero h1 { font-size: clamp(28px, 10vw, 36px); }
+      .hero-sub { font-size: 14px; }
+      .info-rapida { grid-template-columns: 1fr 1fr; }
+      .info-icon svg { width: 22px; height: 22px; }
+      .info-value { font-size: 14px; }
+      .desc-img-wrap { height: 220px; }
+      .lugares-grid { grid-template-columns: 1fr; }
+      .cl-grid { grid-template-columns: 1fr; gap: 12px; }
+      .cl-card { padding: 24px 20px; flex-direction: row; align-items: center; gap: 16px; text-align: left; }
+      .cl-icon { margin-bottom: 0; }
       .ctas { flex-direction: column; align-items: stretch; }
       .ctas a { display: block; }
-      .ctas button { width: 100%; }
+      .ctas button { width: 100%; min-height: 52px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+
+    /* ── 380px ── */
+    @media (max-width: 380px) {
+      .hero h1 { font-size: 26px; }
+      .info-item { padding: 14px 10px; }
+      .info-value { font-size: 13px; }
+      .info-label { font-size: 9px; }
+      .sec-head h2 { font-size: 26px; }
+      .cta-reserva h2 { font-size: 24px; }
+      .nav-logo img { height: 22px; }
     }
   </style>
 </head>

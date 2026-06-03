@@ -192,58 +192,123 @@
     .nav-mobile a.active { color: #CB6037; font-style: italic; }
     .nav-mobile .nav-cta { display: inline-block; margin-top: 24px; text-align: center; padding: 16px 28px; font-size: 11px; letter-spacing: 0.22em; }
 
-    /* === RESPONSIVE === */
-    @media (max-width: 900px) {
+    /* =============================================
+       RESPONSIVE SYSTEM — 4 breakpoints
+       1024px · 768px · 480px · 380px
+    ============================================= */
+
+    /* ── 1024px: tablets landscape ── */
+    @media (max-width: 1024px) {
+      .nav { padding: 16px 32px; }
+      .hero h1 { font-size: clamp(48px, 7vw, 84px); }
+      .sec-head h2 { font-size: clamp(32px, 5vw, 56px); }
+      .espacio-row:nth-child(odd)  { grid-template-columns: 1fr 360px; }
+      .espacio-row:nth-child(even) { grid-template-columns: 360px 1fr; }
+      .espacio-carousel { height: 420px; }
+      .espacio-info { padding: 44px 40px; }
+      .espacio-name { font-size: 38px; }
+      .carta-grid { gap: 40px; }
+      .carta-img-wrap img { height: 460px; }
+      .reserva h2 { font-size: 56px; }
+      .footer-grid { gap: 32px; }
+      .espacios, .carta, .alcala, .semanal { padding: 80px 32px; }
+      .intro { padding: 80px 32px; }
+      .reserva { padding: 100px 32px; }
+    }
+
+    /* ── 768px: tablets portrait ── */
+    @media (max-width: 768px) {
       .nav { padding: 14px 20px; }
       .nav-left, .nav-right { display: none; }
       .nav-burger { display: block; }
-      .hero h1 { font-size: 52px; }
-      .hero-tagline { font-size: 18px; }
+      /* Hero */
+      .hero h1 { font-size: clamp(36px, 9vw, 56px); }
+      .hero-tagline { font-size: 17px; }
       .hero-ctas { gap: 10px; }
-      .btn-primary, .btn-secondary { padding: 16px 24px; }
-      .intro-text { font-size: 26px; }
-      .sec-head h2 { font-size: 38px; }
+      /* Trust bar: scroll horizontal en vez de wrap */
+      .trust { overflow-x: auto; flex-wrap: nowrap; justify-content: flex-start; gap: 0; padding: 0; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+      .trust::-webkit-scrollbar { display: none; }
+      .trust-item { flex: 0 0 auto; padding: 16px 20px; font-size: 12px; border-right: 0.5px solid rgba(0,0,0,0.06); }
+      /* Intro */
+      .intro { padding: 64px 24px; }
+      .intro-text { font-size: clamp(22px, 5vw, 30px); }
+      /* Espacios */
+      .espacios > .sec-head { padding: 0 24px; }
+      .espacios { padding: 64px 0; }
       .espacio-row { grid-template-columns: 1fr !important; }
       .espacio-row:nth-child(even) .espacio-carousel,
       .espacio-row:nth-child(even) .espacio-info { order: unset; }
-      .espacio-carousel { height: 260px; }
-      .espacio-info { padding: 32px 24px; }
-      .espacio-name { font-size: 34px; }
-      .carousel-btn { width: 36px; height: 36px; }
-      .carousel-btn svg { width: 14px; height: 14px; }
-      .espacios > .sec-head { padding: 0 20px; }
-      .carta-grid { grid-template-columns: 1fr; gap: 32px; }
-      .carta-img-wrap img { height: 360px; }
-      .carta-content h3 { font-size: 36px; }
-      .semanal-card { padding: 50px 28px; }
-      .semanal-card h3 { font-size: 36px; }
-      .semanal-price { font-size: 60px; }
-      .coffee-grid { grid-template-columns: 1fr; }
-      .coffee-content { padding: 50px 28px; }
-      .coffee-content h3 { font-size: 36px; }
-      .alcala-text h2 { font-size: 38px; }
-      .reserva h2 { font-size: 44px; }
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-      .footer-bottom { flex-direction: column; }
-      .espacios, .carta, .coffee, .alcala, .semanal { padding: 70px 20px; }
-      .intro { padding: 70px 20px; }
-      .reserva { padding: 80px 20px; }
-      .trust { gap: 14px 22px; padding: 16px 20px; }
-      .trust-item { font-size: 12px; flex: 0 0 auto; }
-      .wa-float { bottom: 18px; right: 18px; width: 52px; height: 52px; font-size: 24px; }
-    }
-    @media (max-width: 500px) {
-      .hero h1 { font-size: 42px; }
-      .hero-eyebrow { font-size: 10px; }
-      .nav-logo { font-size: 18px; }
-      .trust { gap: 10px; padding: 14px 16px; }
-      .trust-item { font-size: 11px; gap: 6px; }
-      .hero-ctas { flex-direction: column; align-items: stretch; }
-      .hero-ctas a { display: block; }
-      .hero-ctas button { width: 100%; }
+      .espacio-carousel { height: 300px; }
+      .espacio-info { padding: 32px 28px; }
+      .espacio-name { font-size: 32px; }
+      /* Carta home */
+      .carta { padding: 64px 24px; }
+      .carta-grid { grid-template-columns: 1fr; gap: 28px; }
+      .carta-img-wrap img { height: 300px; }
+      .carta-content h3 { font-size: 34px; }
       .carta-list { grid-template-columns: 1fr; }
       .carta-item:nth-child(odd) { padding-right: 0; }
       .carta-item:nth-child(even) { padding-left: 0; border-left: 0; }
+      /* Menú semanal */
+      .semanal { padding: 64px 24px; }
+      .semanal-card { padding: 48px 28px; }
+      .semanal-card h3 { font-size: 34px; }
+      .semanal-price { font-size: 56px; }
+      /* Coffee */
+      .coffee { padding: 64px 24px; }
+      .coffee-grid { grid-template-columns: 1fr; }
+      .coffee-content { padding: 40px 28px; order: 1; }
+      .coffee-img-wrap { order: 0; min-height: 280px; }
+      .coffee-content h3 { font-size: 34px; }
+      /* Alcalá */
+      .alcala { padding: 64px 24px; }
+      .alcala-text h2 { font-size: clamp(30px, 6vw, 48px); }
+      .alcala-img-wrap img { height: 280px; }
+      /* Reserva */
+      .reserva { padding: 72px 24px; }
+      .reserva h2 { font-size: clamp(32px, 7vw, 52px); }
+      /* Footer */
+      .footer { padding: 56px 24px 28px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 8px; }
+      /* Shared */
+      .sec-head h2 { font-size: clamp(30px, 6vw, 44px); }
+      .wa-float { bottom: 16px; right: 16px; width: 50px; height: 50px; }
+    }
+
+    /* ── 480px: móvil grande ── */
+    @media (max-width: 480px) {
+      .hero { min-height: 520px; max-height: none; }
+      .hero h1 { font-size: clamp(32px, 10vw, 44px); }
+      .hero-eyebrow { font-size: 10px; letter-spacing: 0.28em; }
+      .hero-tagline { font-size: 15px; }
+      .hero-ctas { flex-direction: column; align-items: stretch; }
+      .hero-ctas a { display: block; }
+      .hero-ctas button { width: 100%; min-height: 52px; }
+      .btn-primary, .btn-secondary { padding: 15px 20px; font-size: 10px; }
+      .espacio-carousel { height: 240px; }
+      .carousel-btn { width: 36px; height: 36px; }
+      .carousel-btn svg { width: 14px; height: 14px; }
+      .espacio-info { padding: 28px 20px; }
+      .espacio-name { font-size: 28px; }
+      .espacio-desc { font-size: 14px; }
+      .semanal-card { padding: 40px 20px; }
+      .semanal-price { font-size: 48px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .reserva .hero-ctas { flex-direction: column; align-items: stretch; }
+      .reserva .hero-ctas a { display: block; }
+      .reserva .hero-ctas button { width: 100%; min-height: 52px; }
+    }
+
+    /* ── 380px: móvil pequeño (iPhone SE, Galaxy A) ── */
+    @media (max-width: 380px) {
+      .hero h1 { font-size: 30px; }
+      .trust-item { font-size: 11px; padding: 14px 14px; }
+      .intro-text { font-size: 20px; }
+      .espacio-name { font-size: 26px; }
+      .semanal-price { font-size: 42px; }
+      .sec-head h2 { font-size: 28px; }
+      .nav-logo img { height: 22px; }
     }
   </style>
 </head>
