@@ -311,25 +311,22 @@
       .nav-logo img { height: 22px; }
     }
 
-    /* ── ACCESIBILIDAD TIPOGRÁFICA — pisos mínimos en móvil ──
-       WCAG AA: cuerpo ≥16px · UI secundaria ≥14px · etiquetas ≥12px */
+    /* ── ACCESIBILIDAD TIPOGRÁFICA ── */
     @media (max-width: 768px) {
-      /* Cuerpo y descripciones */
-      body { font-size: 16px; line-height: 1.6; }
-      .espacio-desc { font-size: 15px; line-height: 1.65; }
-      .semanal-card p { font-size: 15px; }
+      body { font-size: 16px; line-height: 1.65; }
+      .espacio-desc { font-size: 16px; line-height: 1.7; }
+      .espacio-name { font-size: 30px; }
+      .semanal-card p { font-size: 16px; }
       .alcala-text p { font-size: 16px; }
-      .reserva p { font-size: 16px; }
-      .coffee-content p { font-size: 15px; }
-      /* Footer */
-      .footer p, .footer a { font-size: 14px; }
-      /* Trust bar */
-      .trust-item { font-size: 13px; }
-      /* Eyebrows y etiquetas */
-      .sec-eyebrow, .intro-eyebrow { font-size: 12px; }
-      /* Botones — letra-espaciado reducido para que quepan */
-      .btn-primary, .btn-secondary, .btn-dark { font-size: 11px; letter-spacing: 0.16em; }
-      .nav-cta { font-size: 11px; letter-spacing: 0.16em; }
+      .reserva p { font-size: 17px; }
+      .coffee-content p { font-size: 16px; }
+      .intro-text { font-size: clamp(22px, 6vw, 32px); }
+      .sec-head p { font-size: 16px; }
+      .footer p, .footer a { font-size: 15px; }
+      .trust-item { font-size: 14px; }
+      .sec-eyebrow, .intro-eyebrow { font-size: 13px; letter-spacing: 0.28em; }
+      .btn-primary, .btn-secondary, .btn-dark { font-size: 12px; letter-spacing: 0.14em; min-height: 52px; }
+      .nav-cta { font-size: 12px; letter-spacing: 0.14em; }
     }
   </style>
 </head>

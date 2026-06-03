@@ -238,37 +238,38 @@
       .nav-logo img { height: 22px; }
     }
 
-    /* ── ACCESIBILIDAD TIPOGRÁFICA — pisos mínimos en móvil ──
-       WCAG AA: cuerpo ≥16px · UI secundaria ≥14px · etiquetas ≥12px */
+    /* ── ACCESIBILIDAD TIPOGRÁFICA ── */
     @media (max-width: 768px) {
-      body { font-size: 16px; line-height: 1.6; }
-      /* Nombre del plato */
-      .plato-nombre { font-size: 19px; }
-      /* Descripción del plato — texto cuerpo, crítico */
-      .plato-desc { font-size: 15px; line-height: 1.6; color: #2A2A2A; }
-      /* Precio */
-      .plato-precio { font-size: 22px; }
-      .plato-precio.small { font-size: 19px; }
-      /* Opciones y meta */
-      .plato-opcion { font-size: 13px; }
-      .plato-meta { font-size: 12px; }
-      /* Filtros — nunca menos de 12px */
-      .filtro { font-size: 12px; }
-      /* Eyebrows y categorías */
-      .cat-eyebrow, .hero-eyebrow { font-size: 12px; }
+      body { font-size: 16px; line-height: 1.65; }
+      .carta-hero p { font-size: 17px; }
+      /* Platos */
+      .plato-nombre { font-size: 20px; }
+      .plato-desc { font-size: 16px; line-height: 1.65; color: #2A2A2A; }
+      .plato-precio { font-size: 23px; }
+      .plato-precio.small { font-size: 20px; }
+      .plato-opcion { font-size: 14px; }
+      .plato-meta { font-size: 13px; letter-spacing: 0.06em; }
+      /* Filtros */
+      .filtro { font-size: 13px; min-height: 44px; }
+      /* Encabezados de categoría */
+      .cat-eyebrow { font-size: 13px; letter-spacing: 0.28em; }
+      .cat-head h2 { font-size: clamp(30px, 7vw, 44px); }
       /* Subcategorías */
-      .subcat-head { font-size: 20px; }
-      /* Leyenda de alérgenos */
-      .leyenda-text { font-size: 13px; }
-      .leyenda-nota { font-size: 13px; line-height: 1.7; }
-      .leyenda-head p { font-size: 14px; }
-      /* Infantil */
-      .infantil-desc { font-size: 14px; }
-      .infantil-precio { font-size: 22px; }
+      .subcat-head { font-size: 22px; }
+      /* Leyenda */
+      .leyenda-text { font-size: 14px; }
+      .leyenda-nota { font-size: 14px; line-height: 1.7; }
+      .leyenda-head p { font-size: 15px; }
+      /* Menú infantil */
+      .infantil-desc { font-size: 15px; }
+      .infantil-precio { font-size: 24px; }
+      .infantil-name { font-size: 20px; }
+      /* CTA reserva */
+      .cta-reserva p { font-size: 16px; }
       /* Footer */
-      .footer p, .footer a { font-size: 14px; }
-      /* CTAs */
-      .btn-primary, .btn-secondary { font-size: 11px; letter-spacing: 0.16em; }
+      .footer p, .footer a { font-size: 15px; }
+      /* Botones */
+      .btn-primary, .btn-secondary { font-size: 12px; letter-spacing: 0.14em; min-height: 52px; }
     }
   </style>
 </head>
