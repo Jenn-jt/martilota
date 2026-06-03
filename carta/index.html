@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Libre+Franklin:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -71,10 +72,11 @@
 
     /* === ALÉRGENOS POR PLATO === */
     .plato-alergenos { display: flex; gap: 6px; margin-top: 12px; flex-wrap: wrap; }
-    .a-icon { width: 24px; height: 24px; border-radius: 50%; background: #F5F7F7; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; color: #6A6A6A; border: 0.5px solid rgba(0,0,0,0.08); cursor: help; transition: all 0.2s; letter-spacing: 0; font-family: 'Libre Franklin', sans-serif; position: relative; }
-    .a-icon:hover, .a-icon.show { background: #CB6037; color: #fff; border-color: #CB6037; transform: scale(1.08); }
-    .a-icon:hover::after, .a-icon.show::after { content: attr(data-name); position: absolute; bottom: 130%; left: 50%; transform: translateX(-50%); background: #1A1A1A; color: #fff; padding: 5px 10px; font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; border-radius: 3px; z-index: 10; pointer-events: none; }
-    .a-icon:hover::before, .a-icon.show::before { content: ''; position: absolute; bottom: 116%; left: 50%; transform: translateX(-50%); border: 4px solid transparent; border-top-color: #1A1A1A; z-index: 10; }
+    .a-icon { width: 28px; height: 28px; border-radius: 50%; background: #F5F7F7; display: inline-flex; align-items: center; justify-content: center; color: #6A6A6A; border: 0.5px solid rgba(0,0,0,0.1); cursor: help; transition: all 0.2s; position: relative; flex-shrink: 0; }
+    .a-icon svg { width: 14px; height: 14px; stroke: currentColor; fill: none; display: block; transition: none; }
+    .a-icon:hover, .a-icon.show { background: #CB6037; color: #fff; border-color: #CB6037; transform: scale(1.1); }
+    .a-icon:hover::after, .a-icon.show::after { content: attr(data-name); position: absolute; bottom: 135%; left: 50%; transform: translateX(-50%); background: #1A1A1A; color: #fff; padding: 5px 10px; font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; border-radius: 3px; z-index: 10; pointer-events: none; font-family: 'Libre Franklin', sans-serif; }
+    .a-icon:hover::before, .a-icon.show::before { content: ''; position: absolute; bottom: 121%; left: 50%; transform: translateX(-50%); border: 4px solid transparent; border-top-color: #1A1A1A; z-index: 10; }
     /* Variante "menú adaptable" */
     .a-icon.adapt { background: #fff; border-style: dashed; }
     /* Variante "sin / apto" */
@@ -1077,24 +1079,24 @@
         <p>Conforme al Reglamento UE 1169/2011. Pasa el ratón sobre cada icono de la carta para conocer su significado. Si tienes alguna alergia o intolerancia, infórmanos antes de pedir — adaptamos nuestros platos siempre que sea posible.</p>
       </div>
       <div class="leyenda-grid">
-        <div class="leyenda-item"><span class="a-icon">G</span><span class="leyenda-text">Gluten</span></div>
-        <div class="leyenda-item"><span class="a-icon">CR</span><span class="leyenda-text">Crustáceos</span></div>
-        <div class="leyenda-item"><span class="a-icon">H</span><span class="leyenda-text">Huevos</span></div>
-        <div class="leyenda-item"><span class="a-icon">P</span><span class="leyenda-text">Pescado</span></div>
-        <div class="leyenda-item"><span class="a-icon">CA</span><span class="leyenda-text">Cacahuetes</span></div>
-        <div class="leyenda-item"><span class="a-icon">S</span><span class="leyenda-text">Soja</span></div>
-        <div class="leyenda-item"><span class="a-icon">L</span><span class="leyenda-text">Lácteos</span></div>
-        <div class="leyenda-item"><span class="a-icon">FC</span><span class="leyenda-text">F. cáscara</span></div>
-        <div class="leyenda-item"><span class="a-icon">AP</span><span class="leyenda-text">Apio</span></div>
-        <div class="leyenda-item"><span class="a-icon">MO</span><span class="leyenda-text">Mostaza</span></div>
-        <div class="leyenda-item"><span class="a-icon">SE</span><span class="leyenda-text">Sésamo</span></div>
-        <div class="leyenda-item"><span class="a-icon">SU</span><span class="leyenda-text">Sulfitos</span></div>
-        <div class="leyenda-item"><span class="a-icon">AL</span><span class="leyenda-text">Altramuces</span></div>
-        <div class="leyenda-item"><span class="a-icon">M</span><span class="leyenda-text">Moluscos</span></div>
+        <div class="leyenda-item"><span class="a-icon" data-name="Gluten"></span><span class="leyenda-text">Gluten</span></div>
+        <div class="leyenda-item"><span class="a-icon" data-name="Crustáceos"></span><span class="leyenda-text">Crustáceos</span></div>
+        <div class="leyenda-item"><span class="a-icon" data-name="Huevos"></span><span class="leyenda-text">Huevos</span></div>
+        <div class="leyenda-item"><span class="a-icon" data-name="Pescado"></span><span class="leyenda-text">Pescado</span></div>
+        <div class="leyenda-item"><span class="a-icon" data-name="Cacahuetes"></span><span class="leyenda-text">Cacahuetes</span></div>
+        <div class="leyenda-item"><span class="a-icon" data-name="Soja"></span><span class="leyenda-text">Soja</span></div>
+        <div class="leyenda-item"><span class="a-icon" data-name="Lácteos"></span><span class="leyenda-text">Lácteos</span></div>
+        <div class="leyenda-item"><span class="a-icon" data-name="Frutos de cáscara"></span><span class="leyenda-text">F. cáscara</span></div>
+        <div class="leyenda-item"><span class="a-icon" data-name="Apio"></span><span class="leyenda-text">Apio</span></div>
+        <div class="leyenda-item"><span class="a-icon" data-name="Mostaza"></span><span class="leyenda-text">Mostaza</span></div>
+        <div class="leyenda-item"><span class="a-icon" data-name="Sésamo"></span><span class="leyenda-text">Sésamo</span></div>
+        <div class="leyenda-item"><span class="a-icon" data-name="Sulfitos"></span><span class="leyenda-text">Sulfitos</span></div>
+        <div class="leyenda-item"><span class="a-icon" data-name="Altramuces"></span><span class="leyenda-text">Altramuces</span></div>
+        <div class="leyenda-item"><span class="a-icon" data-name="Moluscos"></span><span class="leyenda-text">Moluscos</span></div>
       </div>
       <div class="leyenda-nota">
-        <span class="a-icon libre" style="margin-right:6px;">SG</span> Indica plato apto para celíacos o sin gluten ·
-        <span class="a-icon adapt" style="margin: 0 6px;">VG</span> Indica plato adaptable a opción vegetariana o vegana
+        <span class="a-icon libre" data-name="Sin gluten" style="margin-right:6px;"></span> Indica plato apto para celíacos o sin gluten ·
+        <span class="a-icon adapt" data-name="Adaptable vegano" style="margin: 0 6px;"></span> Indica plato adaptable a opción vegetariana o vegana
       </div>
     </div>
   </section>
@@ -1170,18 +1172,70 @@
       navMobile.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggle(false)));
     })();
 
+    // === ICONOS DE ALÉRGENOS ===
+    (function() {
+      // SVGs personalizados para alérgenos sin icono en Lucide
+      var CUSTOM = {
+        'Crustáceos': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7c0-2-2-4-5-3C8 5 6 9 7 13c1 3 4 5 4 8"/><path d="M11 21l-1.5 1.5M11 21l1.5 1.5"/><path d="M4 9l2.5 1M4 12.5l2.5 0"/></svg>',
+        'Moluscos':    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-5 0-8-4-7-9 1-4 4-7 7-7s6 3 7 7c1 5-2 9-7 9z"/><path d="M5 12h14"/><path d="M9.5 6.5c-.5 3-1 5-.5 8M14.5 6.5c.5 3 1 5 .5 8"/></svg>',
+        'Sésamo':      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="8.5" cy="7.5" rx="2" ry="3.5" transform="rotate(-10 8.5 7.5)"/><ellipse cx="15.5" cy="7.5" rx="2" ry="3.5" transform="rotate(10 15.5 7.5)"/><ellipse cx="12" cy="16" rx="2" ry="3.5"/></svg>',
+        'Mostaza':     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.5"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>',
+        'Cacahuetes':  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-3.5 0-5 2.5-5 5 0 1.5.8 2.5.8 4.5S7 15 7 16.5C7 20 9.5 21 12 21s5-1 5-4.5c0-1.5-.8-2.5-.8-4.5S17 11 17 8c0-2.5-1.5-5-5-5z"/><line x1="7" y1="12.5" x2="17" y2="12.5"/></svg>',
+        'Frutos de cáscara': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-3.5 0-5 2.5-5 5 0 1.5.8 2.5.8 4.5S7 15 7 16.5C7 20 9.5 21 12 21s5-1 5-4.5c0-1.5-.8-2.5-.8-4.5S17 11 17 8c0-2.5-1.5-5-5-5z"/><line x1="7" y1="12.5" x2="17" y2="12.5"/></svg>',
+        'Altramuces':  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20c0-4 0-8 0-12"/><ellipse cx="8" cy="11" rx="3" ry="4"/><ellipse cx="16" cy="11" rx="3" ry="4"/><ellipse cx="12" cy="7" rx="3" ry="4"/></svg>',
+        'Soja':        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="3" ry="4.5"/><ellipse cx="7" cy="10" rx="2.5" ry="3.5"/><ellipse cx="17" cy="10" rx="2.5" ry="3.5"/></svg>',
+        'Sin gluten':  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>',
+        'Sin alérgenos': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>',
+        'Adaptable vegano': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>'
+      };
+
+      // Lucide icon mapping (nombre → icono Lucide)
+      var LUCIDE = {
+        'Gluten':   'wheat',
+        'Huevos':   'egg',
+        'Pescado':  'fish',
+        'Lácteos':  'milk',
+        'Sulfitos': 'wine',
+        'Apio':     'sprout'
+      };
+
+      function injectIcons() {
+        document.querySelectorAll('.a-icon[data-name]').forEach(function(el) {
+          var name = el.getAttribute('data-name');
+          if (CUSTOM[name]) {
+            el.innerHTML = CUSTOM[name];
+          } else if (LUCIDE[name]) {
+            var i = document.createElement('i');
+            i.setAttribute('data-lucide', LUCIDE[name]);
+            el.innerHTML = '';
+            el.appendChild(i);
+          }
+        });
+        if (window.lucide) window.lucide.createIcons();
+      }
+
+      // Lucide puede no estar listo aún (defer), esperamos
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', injectIcons);
+      } else {
+        injectIcons();
+      }
+      window.addEventListener('load', function() {
+        if (window.lucide) window.lucide.createIcons();
+      });
+    })();
+
     // Tooltips de alérgenos por toque (touch devices)
     (function(){
-      document.querySelectorAll('.a-icon').forEach(icon => {
-        icon.addEventListener('click', e => {
-          if (icon.closest('.leyenda-item, .leyenda-nota')) return;
+      document.addEventListener('click', function(e) {
+        var icon = e.target.closest('.a-icon');
+        if (icon && !icon.closest('.leyenda-item, .leyenda-nota')) {
           e.stopPropagation();
-          document.querySelectorAll('.a-icon.show').forEach(o => { if (o !== icon) o.classList.remove('show'); });
+          document.querySelectorAll('.a-icon.show').forEach(function(o) { if (o !== icon) o.classList.remove('show'); });
           icon.classList.toggle('show');
-        });
-      });
-      document.addEventListener('click', () => {
-        document.querySelectorAll('.a-icon.show').forEach(o => o.classList.remove('show'));
+        } else {
+          document.querySelectorAll('.a-icon.show').forEach(function(o) { o.classList.remove('show'); });
+        }
       });
     })();
 
