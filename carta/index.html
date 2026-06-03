@@ -51,6 +51,13 @@
     .cat-divider { display: flex; align-items: center; gap: 14px; max-width: 100px; margin: 18px auto 0; }
     .cat-divider hr { flex: 1; border: 0; border-top: 0.5px solid #CB6037; }
     .cat-divider span { color: #CB6037; font-size: 8px; }
+    .categoria[hidden] { display: none; }
+    .subcat-head { font-family: 'Cormorant Infant', serif; font-size: 22px; font-weight: 500; font-style: italic; color: #CB6037; margin: 48px 0 20px; padding-bottom: 10px; border-bottom: 0.5px solid rgba(203,96,55,0.25); letter-spacing: 0.02em; }
+    .subcat-head:first-of-type { margin-top: 0; }
+    .plato-do { font-size: 10px; color: #6A6A6A; letter-spacing: 0.12em; text-transform: uppercase; margin-top: 4px; font-weight: 500; }
+    .plato-precio.small { font-size: 19px; }
+    .plato-precios-dual { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+    .plato-precios-dual .precio-label { font-size: 9px; color: #6A6A6A; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 400; font-style: normal; font-family: 'Libre Franklin', sans-serif; }
 
     /* === PLATOS === */
     .platos { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 48px; }
@@ -200,12 +207,18 @@
   <!-- FILTROS -->
   <div class="filtros">
     <div class="filtros-grid">
-      <div class="filtro active">Todo</div>
-      <div class="filtro">Sugerencias del chef</div>
-      <div class="filtro">Para compartir</div>
-      <div class="filtro">Carnes y pescados</div>
-      <div class="filtro">Arroces</div>
-      <div class="filtro">Menú infantil</div>
+      <div class="filtro active" data-cat="all">Todo</div>
+      <div class="filtro" data-cat="chef">Sugerencias del chef</div>
+      <div class="filtro" data-cat="compartir">Para compartir</div>
+      <div class="filtro" data-cat="carnes">Carnes y pescados</div>
+      <div class="filtro" data-cat="arroces">Arroces</div>
+      <div class="filtro" data-cat="infantil">Menú infantil</div>
+      <div class="filtro" data-cat="postres">Postres</div>
+      <div class="filtro" data-cat="desayunos">Desayunos</div>
+      <div class="filtro" data-cat="cafes">Café y meriendas</div>
+      <div class="filtro" data-cat="vinos">Vinos</div>
+      <div class="filtro" data-cat="cervezas">Cervezas</div>
+      <div class="filtro" data-cat="copas">Copas</div>
     </div>
   </div>
 
@@ -213,7 +226,7 @@
   <div class="carta-wrap">
 
     <!-- SUGERENCIAS DEL CHEF -->
-    <div class="categoria">
+    <div class="categoria" data-cat="chef">
       <div class="cat-head">
         <div class="cat-eyebrow">Lo más especial</div>
         <h2>Sugerencias <em>del chef</em></h2>
@@ -291,7 +304,7 @@
     </div>
 
     <!-- PARA COMPARTIR -->
-    <div class="categoria">
+    <div class="categoria" data-cat="compartir">
       <div class="cat-head">
         <div class="cat-eyebrow">Mesa redonda</div>
         <h2>Para <em>compartir</em></h2>
@@ -416,7 +429,7 @@
     </div>
 
     <!-- CARNES Y PESCADOS -->
-    <div class="categoria">
+    <div class="categoria" data-cat="carnes">
       <div class="cat-head">
         <div class="cat-eyebrow">Producto y brasa</div>
         <h2>Carnes y <em>pescados</em></h2>
@@ -529,7 +542,7 @@
     </div>
 
     <!-- ARROCES -->
-    <div class="categoria">
+    <div class="categoria" data-cat="arroces">
       <div class="cat-head">
         <div class="cat-eyebrow">Cocinados al momento</div>
         <h2>Nuestros <em>arroces</em></h2>
@@ -564,10 +577,469 @@
       </div>
     </div>
 
+    <!-- POSTRES -->
+    <div class="categoria" data-cat="postres">
+      <div class="cat-head">
+        <div class="cat-eyebrow">Final dulce</div>
+        <h2>Nuestros <em>postres</em></h2>
+        <div class="cat-divider"><hr><span>◆</span><hr></div>
+      </div>
+      <div class="platos">
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Tarta de queso San Simón</div>
+            <div class="plato-desc">Con helado de kéfir de cerezas.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Lácteos">L</span>
+              <span class="a-icon" data-name="Huevos">H</span>
+            </div>
+          </div>
+          <div class="plato-precio">8,90€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Coulant de chocolate 72%</div>
+            <div class="plato-desc">Coulant de cacao, mousse de praliné de avellanas con helado de chocolate blanco con matices de violeta.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Gluten">G</span>
+              <span class="a-icon" data-name="Huevos">H</span>
+              <span class="a-icon" data-name="Lácteos">L</span>
+              <span class="a-icon" data-name="Frutos de cáscara">FC</span>
+            </div>
+          </div>
+          <div class="plato-precio">8,90€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Torrija Martilota</div>
+            <div class="plato-desc">Caramelizada, infusionada con cítricos, canela y vainilla de Madagascar, toffee salado y espuma de leche aromatizada.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Gluten">G</span>
+              <span class="a-icon" data-name="Huevos">H</span>
+              <span class="a-icon" data-name="Lácteos">L</span>
+            </div>
+          </div>
+          <div class="plato-precio">8,90€</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DESAYUNOS -->
+    <div class="categoria" data-cat="desayunos">
+      <div class="cat-head">
+        <div class="cat-eyebrow">Para empezar el día</div>
+        <h2>Nuestros <em>desayunos</em></h2>
+        <div class="cat-divider"><hr><span>◆</span><hr></div>
+        <p style="color:#6A6A6A; font-size:13px; margin-top:18px; font-style:italic;">Incluyen café, té o infusión. Suplemento 2,50€ para zumo, refresco o cerveza.</p>
+      </div>
+      <div class="platos">
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Continental</div>
+            <div class="plato-desc">Tostada con mantequilla y confitura casera.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Gluten">G</span>
+              <span class="a-icon" data-name="Lácteos">L</span>
+            </div>
+          </div>
+          <div class="plato-precio">3,80€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Cordobés</div>
+            <div class="plato-desc">Tostada con AOVE y salmorejo.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Gluten">G</span>
+              <span class="a-icon" data-name="Huevos">H</span>
+            </div>
+          </div>
+          <div class="plato-precio">3,80€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Detox griego</div>
+            <div class="plato-desc">Tostada, aguacate a la plancha, AOVE y salmorejo.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Gluten">G</span>
+              <span class="a-icon" data-name="Huevos">H</span>
+            </div>
+          </div>
+          <div class="plato-precio">5,50€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Serrano Jabugo</div>
+            <div class="plato-desc">Tostada con AOVE, salmorejo y jamón ibérico.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Gluten">G</span>
+              <span class="a-icon" data-name="Huevos">H</span>
+            </div>
+          </div>
+          <div class="plato-precio">7,00€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Parisino dulce</div>
+            <div class="plato-desc">Croissant con mantequilla y confitura casera.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Gluten">G</span>
+              <span class="a-icon" data-name="Huevos">H</span>
+              <span class="a-icon" data-name="Lácteos">L</span>
+            </div>
+          </div>
+          <div class="plato-precio">3,80€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Parisino con chocolate o Nutella</div>
+            <div class="plato-desc">Croissant relleno.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Gluten">G</span>
+              <span class="a-icon" data-name="Huevos">H</span>
+              <span class="a-icon" data-name="Lácteos">L</span>
+              <span class="a-icon" data-name="Frutos de cáscara">FC</span>
+            </div>
+          </div>
+          <div class="plato-precio">5,30€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Parisino salado</div>
+            <div class="plato-desc">Croissant relleno de jamón york y queso.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Gluten">G</span>
+              <span class="a-icon" data-name="Huevos">H</span>
+              <span class="a-icon" data-name="Lácteos">L</span>
+            </div>
+          </div>
+          <div class="plato-precio">5,30€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">De huevo de Colón</div>
+            <div class="plato-desc">Tortilla española de huevos camperos, con o sin cebolla.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Huevos">H</span>
+            </div>
+          </div>
+          <div class="plato-precio">6,00€</div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Sándwich mixto</div>
+            <div class="plato-desc">Pan, jamón york y queso.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Gluten">G</span>
+              <span class="a-icon" data-name="Lácteos">L</span>
+            </div>
+          </div>
+          <div class="plato-precio">5,30€</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CAFÉ Y MERIENDAS -->
+    <div class="categoria" data-cat="cafes">
+      <div class="cat-head">
+        <div class="cat-eyebrow">Martilota Coffee</div>
+        <h2>Café <em>y meriendas</em></h2>
+        <div class="cat-divider"><hr><span>◆</span><hr></div>
+      </div>
+
+      <h3 class="subcat-head">Cafés</h3>
+      <div class="platos">
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Expreso</div></div><div class="plato-precio small">1,90€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Expreso doble</div></div><div class="plato-precio small">2,50€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Cortado</div></div><div class="plato-precio small">1,90€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Americano</div></div><div class="plato-precio small">1,90€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Latte</div></div><div class="plato-precio small">2,10€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Latte XL</div></div><div class="plato-precio small">2,40€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Bombón</div><div class="plato-desc">Café con leche condensada.</div></div><div class="plato-precio small">2,80€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Bombón XL</div></div><div class="plato-precio small">3,10€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Capuchino</div><div class="plato-desc">Café doble con espuma de leche.</div></div><div class="plato-precio small">4,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Café vienés</div><div class="plato-desc">Expreso, azúcar blanco y nata.</div></div><div class="plato-precio small">3,10€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Mocca negro</div><div class="plato-desc">Salsa de chocolate y nata.</div></div><div class="plato-precio small">4,60€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Mocca blanco</div><div class="plato-desc">Salsa de chocolate blanco y nata.</div></div><div class="plato-precio small">4,60€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Cremoso de café con Baileys</div></div><div class="plato-precio small">4,60€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Irlandés</div><div class="plato-desc">Café, whiskey y nata.</div></div><div class="plato-precio small">5,50€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Carajillo</div><div class="plato-desc">Expreso, brandy y piel de limón.</div></div><div class="plato-precio small">3,50€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Chocolate caliente</div></div><div class="plato-precio small">3,10€</div></div>
+      </div>
+
+      <h3 class="subcat-head">Tés e infusiones</h3>
+      <div class="platos">
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Té English Breakfast</div></div><div class="plato-precio small">2,10€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Té negro Earl Grey</div></div><div class="plato-precio small">2,10€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Té verde menta</div></div><div class="plato-precio small">2,10€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Té verde moruno</div></div><div class="plato-precio small">2,10€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Té rojo</div></div><div class="plato-precio small">2,10€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Frutos del bosque</div></div><div class="plato-precio small">2,10€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Tila</div></div><div class="plato-precio small">2,10€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Rooibos vainilla</div></div><div class="plato-precio small">2,10€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Menta poleo</div></div><div class="plato-precio small">2,10€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Manzanilla</div></div><div class="plato-precio small">2,10€</div></div>
+      </div>
+
+      <h3 class="subcat-head">Helados artesanos</h3>
+      <div class="platos">
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Chocolate negro</div><div class="plato-alergenos"><span class="a-icon" data-name="Lácteos">L</span></div></div><div class="plato-precio small">4,95€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Dulce de leche</div><div class="plato-alergenos"><span class="a-icon" data-name="Lácteos">L</span></div></div><div class="plato-precio small">4,95€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Vainilla de Madagascar</div><div class="plato-alergenos"><span class="a-icon" data-name="Lácteos">L</span></div></div><div class="plato-precio small">4,95€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Pistacho de Sicilia</div><div class="plato-alergenos"><span class="a-icon" data-name="Lácteos">L</span><span class="a-icon" data-name="Frutos de cáscara">FC</span></div></div><div class="plato-precio small">4,95€</div></div>
+      </div>
+    </div>
+
+    <!-- VINOS -->
+    <div class="categoria" data-cat="vinos">
+      <div class="cat-head">
+        <div class="cat-eyebrow">Carta de vinos</div>
+        <h2>Nuestros <em>vinos</em></h2>
+        <div class="cat-divider"><hr><span>◆</span><hr></div>
+      </div>
+
+      <h3 class="subcat-head">Por copas</h3>
+      <div class="platos">
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Dulce María</div><div class="plato-do">D.O. Madrid</div></div><div class="plato-precio small">3,50€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Dama del Lago Verdejo</div><div class="plato-do">D.O. Rueda</div></div><div class="plato-precio small">3,30€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Casal do Vila</div><div class="plato-do">D.O. Ribeiro</div></div><div class="plato-precio small">3,50€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Hacienda Grimón Rosado</div><div class="plato-do">D.O. Rioja</div></div><div class="plato-precio small">3,50€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Noah Ribera Joven</div><div class="plato-do">D.O. Ribera del Duero</div></div><div class="plato-precio small">3,30€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Lengua Azul 2023</div><div class="plato-do">V.T. Extremadura</div></div><div class="plato-precio small">3,50€</div></div>
+      </div>
+
+      <h3 class="subcat-head">Blancos</h3>
+      <div class="platos">
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Casa do Vila</div><div class="plato-do">D.O. Ribeiro</div></div><div class="plato-precio small">21,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Javier Sanz Verdejo 2024</div><div class="plato-do">D.O. Rueda</div></div><div class="plato-precio small">24,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Ruchel Godello</div><div class="plato-do">D.O. Valdeorras</div></div><div class="plato-precio small">25,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Froiña</div><div class="plato-do">D.O. Rías Baixas</div></div><div class="plato-precio small">25,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Panorámico 2019</div><div class="plato-do">D.O.Ca. Rioja</div></div><div class="plato-precio small">25,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Casal de Armán</div><div class="plato-do">D.O. Ribeiro</div></div><div class="plato-precio small">28,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Martín Códax</div><div class="plato-do">D.O. Rías Baixas</div></div><div class="plato-precio small">29,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Sancerre Blanc Cuvée La Manoir 2020</div><div class="plato-do">Loira · Francia</div></div><div class="plato-precio small">34,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Tomás Postigo F. Barrica 2018</div><div class="plato-do">I.G.P. Castilla y León</div></div><div class="plato-precio small">35,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Finca Zuriena Cepas Viejas 2019</div><div class="plato-do">D.O.Ca. Rioja</div></div><div class="plato-precio small">45,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Abadía Retuerta Le Domaine 2023</div><div class="plato-do">I.G.P. Castilla y León</div></div><div class="plato-precio small">68,00€</div></div>
+      </div>
+
+      <h3 class="subcat-head">Rosado</h3>
+      <div class="platos">
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Hacienda Grimón</div><div class="plato-do">D.O. Rioja</div></div><div class="plato-precio small">20,00€</div></div>
+      </div>
+
+      <h3 class="subcat-head">Tintos</h3>
+      <div class="platos">
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Lengua Azul 2023</div><div class="plato-do">V.T. Extremadura</div></div><div class="plato-precio small">19,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Usarralde</div><div class="plato-do">D.O. Rioja</div></div><div class="plato-precio small">19,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Casa Castillo 2023</div><div class="plato-do">D.O. Jumilla</div></div><div class="plato-precio small">22,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Convento Oreja Roble 2023</div><div class="plato-do">D.O. Ribera del Duero</div></div><div class="plato-precio small">23,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">La Planta 2023</div><div class="plato-do">D.O. Ribera del Duero</div></div><div class="plato-precio small">25,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">992 Río Negro 2022</div><div class="plato-do">V.T. Castilla</div></div><div class="plato-precio small">26,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Borsao Tres Picos 2021</div><div class="plato-do">D.O. Cariñena</div></div><div class="plato-precio small">28,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Félix Martínez Cepas Viejas Reserva 2020</div><div class="plato-do">D.O. Vinos de Madrid</div></div><div class="plato-precio small">29,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Angelitos Negros 2021</div><div class="plato-do">D.O. Toro</div></div><div class="plato-precio small">29,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Convento Oreja Crianza 2021</div><div class="plato-do">D.O. Ribera del Duero</div></div><div class="plato-precio small">33,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Pétalos 2022</div><div class="plato-do">D.O. Bierzo</div></div><div class="plato-precio small">34,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">El Molar 2023</div><div class="plato-do">D.O. Jumilla</div></div><div class="plato-precio small">35,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Marqués de Murrieta Reserva 2020</div><div class="plato-do">D.O.Ca. Rioja</div></div><div class="plato-precio small">40,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Camins del Priorat 2023</div><div class="plato-do">D.O.Ca. Priorat</div></div><div class="plato-precio small">43,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Licinia 2018</div><div class="plato-do">D.O. Vinos de Madrid</div></div><div class="plato-precio small">45,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Arzuaga 2021</div><div class="plato-do">D.O. Ribera del Duero</div></div><div class="plato-precio small">48,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Quinq 2016</div><div class="plato-do">D.O. Ribera del Duero</div></div><div class="plato-precio small">48,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Abadía Retuerta S. Especial 2020</div><div class="plato-do">I.G.P. Castilla y León</div></div><div class="plato-precio small">48,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Tomás Postigo 2022</div><div class="plato-do">D.O. Ribera del Duero</div></div><div class="plato-precio small">50,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Hacienda Monasterio 2022</div><div class="plato-do">D.O. Ribera del Duero</div></div><div class="plato-precio small">55,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Remírez de Ganuza Reserva 2016</div><div class="plato-do">D.O.Ca. Rioja</div></div><div class="plato-precio small">95,00€</div></div>
+      </div>
+
+      <h3 class="subcat-head">Generosos</h3>
+      <div class="platos">
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Manzanilla La Gitana</div><div class="plato-do">D.O. Manzanilla de Sanlúcar</div></div><div class="plato-precio small">25,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Fino Eléctrico Bombilla</div><div class="plato-do">D.O. Montilla Moriles</div></div><div class="plato-precio small">30,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Oloroso Marqués de Poley</div><div class="plato-do">D.O. Jerez</div></div><div class="plato-precio small">32,00€</div></div>
+      </div>
+
+      <h3 class="subcat-head">Cavas y champagnes</h3>
+      <div class="platos">
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Moët Brut Impérial</div><div class="plato-do">Champagne · Francia</div></div><div class="plato-precio small">85,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Moët Rosé Impérial</div><div class="plato-do">Champagne · Francia</div></div><div class="plato-precio small">90,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Moët Ice Impérial</div><div class="plato-do">Champagne · Francia</div></div><div class="plato-precio small">100,00€</div></div>
+      </div>
+    </div>
+
+    <!-- CERVEZAS -->
+    <div class="categoria" data-cat="cervezas">
+      <div class="cat-head">
+        <div class="cat-eyebrow">De grifo</div>
+        <h2>Nuestras <em>cervezas</em></h2>
+        <div class="cat-divider"><hr><span>◆</span><hr></div>
+      </div>
+      <div class="platos">
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Águila Dorada</div>
+            <div class="plato-desc">Cerveza lager especial de baja fermentación. Color rubio brillante.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Gluten">G</span>
+            </div>
+          </div>
+          <div class="plato-precios-dual">
+            <div class="plato-precio small">3,30€ <span class="precio-label">caña</span></div>
+            <div class="plato-precio small">5,00€ <span class="precio-label">doble</span></div>
+          </div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Águila Sin Filtrar</div>
+            <div class="plato-desc">Lager especial, con sabor intenso a malta caramelizada.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Gluten">G</span>
+            </div>
+          </div>
+          <div class="plato-precios-dual">
+            <div class="plato-precio small">3,50€ <span class="precio-label">caña</span></div>
+            <div class="plato-precio small">5,50€ <span class="precio-label">doble</span></div>
+          </div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">18/70</div>
+            <div class="plato-desc">Lager rubio oscuro con más cuerpo que otras de su categoría. Intenso sabor.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Gluten">G</span>
+            </div>
+          </div>
+          <div class="plato-precios-dual">
+            <div class="plato-precio small">3,50€ <span class="precio-label">caña</span></div>
+            <div class="plato-precio small">5,50€ <span class="precio-label">doble</span></div>
+          </div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Amstel Radler</div>
+            <div class="plato-desc">Cerveza con limón, mezcla de Amstel 100% malta con zumo natural.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Gluten">G</span>
+            </div>
+          </div>
+          <div class="plato-precios-dual">
+            <div class="plato-precio small">3,30€ <span class="precio-label">caña</span></div>
+            <div class="plato-precio small">5,00€ <span class="precio-label">doble</span></div>
+          </div>
+        </div>
+
+        <div class="plato">
+          <div class="plato-info">
+            <div class="plato-nombre">Heineken 0.0</div>
+            <div class="plato-desc">Rubia sin alcohol con sabor refrescante y afrutado.</div>
+            <div class="plato-alergenos">
+              <span class="a-icon" data-name="Gluten">G</span>
+            </div>
+          </div>
+          <div class="plato-precios-dual">
+            <div class="plato-precio small">3,30€ <span class="precio-label">caña</span></div>
+            <div class="plato-precio small">4,30€ <span class="precio-label">doble</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- COPAS -->
+    <div class="categoria" data-cat="copas">
+      <div class="cat-head">
+        <div class="cat-eyebrow">Destilados premium</div>
+        <h2>Nuestras <em>copas</em></h2>
+        <div class="cat-divider"><hr><span>◆</span><hr></div>
+      </div>
+
+      <h3 class="subcat-head">Ginebras premium</h3>
+      <div class="platos">
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Beefeater 24</div></div><div class="plato-precio small">10,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Roku</div></div><div class="plato-precio small">10,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Tanqueray Sevilla</div></div><div class="plato-precio small">10,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Bloom</div></div><div class="plato-precio small">12,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Brockmans</div></div><div class="plato-precio small">12,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Bulldog</div></div><div class="plato-precio small">12,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Citadelle</div></div><div class="plato-precio small">12,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Gin Mare</div></div><div class="plato-precio small">12,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Hendricks</div></div><div class="plato-precio small">12,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">London Nº1</div></div><div class="plato-precio small">12,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Martin Miller</div></div><div class="plato-precio small">12,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Nordés</div></div><div class="plato-precio small">12,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Sipsmith</div></div><div class="plato-precio small">12,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Tanqueray Ten</div></div><div class="plato-precio small">12,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Monkey 47</div></div><div class="plato-precio small">14,00€</div></div>
+      </div>
+
+      <h3 class="subcat-head">Rones premium</h3>
+      <div class="platos">
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Appleton</div></div><div class="plato-precio small">12,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Brugal 1888</div></div><div class="plato-precio small">12,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Diplomático</div></div><div class="plato-precio small">12,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Havana Club Maestros</div></div><div class="plato-precio small">12,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Matusalem 15</div></div><div class="plato-precio small">12,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Santa Teresa 1796</div></div><div class="plato-precio small">12,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Flor de Caña 12</div></div><div class="plato-precio small">13,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Barceló Imperial</div></div><div class="plato-precio small">14,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Zacapa 23</div></div><div class="plato-precio small">16,00€</div></div>
+      </div>
+
+      <h3 class="subcat-head">Whiskys premium</h3>
+      <div class="platos">
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Cardhu 12</div></div><div class="plato-precio small">12,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Glenrothes</div></div><div class="plato-precio small">12,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Jack Daniel's Gentleman</div></div><div class="plato-precio small">12,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Chivas 12</div></div><div class="plato-precio small">14,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Glenlivet</div></div><div class="plato-precio small">14,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Jameson Black Barrel</div></div><div class="plato-precio small">14,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Johnnie Walker Black Label</div></div><div class="plato-precio small">14,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Knockando</div></div><div class="plato-precio small">14,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Maker's Mark</div></div><div class="plato-precio small">14,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Woodford Reserve</div></div><div class="plato-precio small">15,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Jack Daniel's Single Barrel</div></div><div class="plato-precio small">16,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Johnnie Walker Gold</div></div><div class="plato-precio small">16,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Chivas XV</div></div><div class="plato-precio small">17,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Macallan</div></div><div class="plato-precio small">18,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Dewar's 18</div></div><div class="plato-precio small">24,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Hibiki</div></div><div class="plato-precio small">26,00€</div></div>
+      </div>
+
+      <h3 class="subcat-head">Vodkas</h3>
+      <div class="platos">
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Absolut</div></div><div class="plato-precio small">9,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Smirnoff</div></div><div class="plato-precio small">9,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Stolichnaya</div></div><div class="plato-precio small">9,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Grey Goose</div></div><div class="plato-precio small">12,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Belvedere</div></div><div class="plato-precio small">14,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Cîroc</div></div><div class="plato-precio small">14,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Stolichnaya Elit</div></div><div class="plato-precio small">15,00€</div></div>
+        <div class="plato"><div class="plato-info"><div class="plato-nombre">Imperia</div></div><div class="plato-precio small">16,00€</div></div>
+      </div>
+    </div>
+
   </div>
 
   <!-- MENÚ INFANTIL -->
-  <section class="infantil">
+  <section class="infantil" data-cat="infantil">
     <div class="infantil-card">
       <div class="cat-eyebrow">Para los más pequeños</div>
       <h3>Menú <em>infantil</em></h3>
@@ -713,23 +1185,26 @@
       });
     })();
 
-    // Filtros interactivos: scroll a categoría
-    const filtros = document.querySelectorAll('.filtro');
-    const categorias = document.querySelectorAll('.categoria');
-    filtros.forEach((f, i) => {
-      f.addEventListener('click', () => {
-        filtros.forEach(x => x.classList.remove('active'));
-        f.classList.add('active');
-        if (i === 0) {
-          window.scrollTo({top: 0, behavior: 'smooth'});
-        } else if (categorias[i-1]) {
-          categorias[i-1].scrollIntoView({behavior: 'smooth', block: 'start'});
-        } else if (i === 5) {
-          // Menú infantil
-          document.querySelector('.infantil').scrollIntoView({behavior: 'smooth', block: 'start'});
-        }
+    // Filtros: muestran/ocultan categorías
+    (function(){
+      const filtros = document.querySelectorAll('.filtro');
+      const seccionesFiltrables = document.querySelectorAll('[data-cat]:not(.filtro)');
+      filtros.forEach(filtro => {
+        filtro.addEventListener('click', () => {
+          const cat = filtro.dataset.cat;
+          filtros.forEach(f => f.classList.toggle('active', f === filtro));
+          seccionesFiltrables.forEach(sec => {
+            sec.hidden = !(cat === 'all' || sec.dataset.cat === cat);
+          });
+          // Scroll suave hasta los filtros para que se vea el cambio
+          const carta = document.querySelector('.carta-wrap');
+          const filtrosEl = document.querySelector('.filtros');
+          if (carta && filtrosEl && window.scrollY > carta.offsetTop) {
+            window.scrollTo({ top: carta.offsetTop - filtrosEl.offsetHeight - 60, behavior: 'smooth' });
+          }
+        });
       });
-    });
+    })();
   </script>
 
 </body>
