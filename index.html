@@ -97,7 +97,8 @@
 
     /* Puntos */
     .carousel-dots { position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10; }
-    .carousel-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.5); border: none; cursor: pointer; padding: 0; transition: all 0.2s; }
+    .carousel-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.5); border: none; cursor: pointer; padding: 0; transition: all 0.2s; position: relative; }
+    .carousel-dot::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 44px; height: 44px; }
     .carousel-dot.active { background: #fff; transform: scale(1.2); }
 
     /* Info lateral */
@@ -190,7 +191,7 @@
     .wa-float:hover { transform: scale(1.08); }
 
     /* === NAV MÓVIL (HAMBURGUESA) === */
-    .nav-burger { display: none; background: none; border: 0; padding: 8px; cursor: pointer; }
+    .nav-burger { display: none; background: none; border: 0; padding: 11px; cursor: pointer; min-width: 44px; min-height: 44px; }
     .nav-burger span { display: block; width: 22px; height: 2px; background: #1A1A1A; margin: 5px 0; transition: transform .25s ease, opacity .2s ease; }
     .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .nav-burger.open span:nth-child(2) { opacity: 0; }
@@ -297,7 +298,7 @@
       .hero-ctas button { width: 100%; min-height: 52px; }
       .btn-primary, .btn-secondary { padding: 15px 20px; font-size: 10px; }
       .espacio-carousel { height: 240px; }
-      .carousel-btn { width: 36px; height: 36px; }
+      .carousel-btn { width: 44px; height: 44px; }
       .carousel-btn svg { width: 14px; height: 14px; }
       .espacio-info { padding: 28px 20px; }
       .espacio-name { font-size: 28px; }
