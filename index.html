@@ -350,6 +350,11 @@
       .btn-primary, .btn-secondary, .btn-dark { font-size: 12px; letter-spacing: 0.14em; min-height: 52px; }
       .nav-cta { font-size: 12px; letter-spacing: 0.14em; }
     }
+
+    /* ── Corrección post-accesibilidad: eyebrow largo en móvil pequeño ── */
+    @media (max-width: 480px) {
+      .hero-eyebrow { font-size: 12px; letter-spacing: 0.12em; }
+    }
   </style>
 </head>
 <body>
@@ -576,7 +581,7 @@
       <h3>Menú semanal<br><em>de cocina honesta</em></h3>
       <div class="semanal-price">16,50<small>€</small></div>
       <p>Cada día una propuesta distinta. Crema de calabaza y batata asada con picadillo de almendras, segundo a elegir, postre y bebida. De lunes a viernes al mediodía.</p>
-      <a href="carta/" style="text-decoration:none;"><button class="btn-dark">Ver el menú de esta semana</button></a>
+      <a href="carta/" style="text-decoration:none;"><button class="btn-dark">Ver menú semanal</button></a>
     </div>
   </section>
 
